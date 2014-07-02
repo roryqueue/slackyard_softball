@@ -1,4 +1,5 @@
 class Pitch
+  include Maths
   attr_reader :fielding_team, :pitcher, :batter, :placement, :swing, :contact, :fair_or_foul, :hit_or_fielded, :hit_type, :fielder_position, :out_or_error, :game
 
   def initialize(game, inning_number, fielding_team, batter)
