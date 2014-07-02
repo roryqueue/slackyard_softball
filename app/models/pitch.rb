@@ -1,14 +1,9 @@
-class Pitch < ActiveRecord::Base
-  belongs_to :game
-  belongs_to :hitting_team, class_name: "Team"
-  belongs_to :fielding_team, class_name: "Team"
-  belongs_to :hitter, class_name: "Player"
-  belongs_to :pitcher, class_name: "Player"
-  belongs_to :fielder, class_name: "Player"
+class Pitch
+  attr_reader :fielding_team, :pitcher, :batter, :placement, :swing, :contact, :fair_or_foul, :hit_or_fielded, :hit_type, :fielder_position, :out_or_error, :game
 
-  attr_reader :fielding_team, :pitcher, :batter, :placement, :swing, :contact, :fair_or_foul, :hit_or_fielded, :hit_type, :fielder_position, :out_or_error
-
-  def initialize(fielding_team, batter)
+  def initialize(game, inning_number, fielding_team, batter)
+    @game = game
+    @inning_number = inning_number
     @fielding_team = fielding_team
     @pitcher = fielding_team.pitcher
     @batter = batter
@@ -20,7 +15,35 @@ class Pitch < ActiveRecord::Base
     @fielder_position = hit_to?
     @out_or_error = fielding_checker
     @hit_type = extra_bases_checker
-    puts "Placement: #{placement} || Swing: #{swing} || Contact: #{contact} || Fair or foul: #{fair_or_foul} || Hit or fielded: #{hit_or_fielded} || Fielder Position: #{fielder_position} || Out or Error: #{out_or_error} || Hit type: #{hit_type}"
+    keep_stats
+  end
+
+  def keep_stats
+    #get strike zone to binary
+    strike_zone = if placement == :strike then true else false end
+
+    #find fielder
+    if fielder_position
+      fielder = fielding_team.positions[fielder_position.to_i]
+    end
+
+    #condense contact result to one value that I care about
+    contact_result = nil
+    if hit_type
+      contact_result = hit_type
+    elsif out_or_error
+      contact_result = out_or_error
+    elsif hit_or_fielded
+      contact_result = hit_or_fielded
+    elsif fair_or_foul
+      contact_result = fair_or_foul
+    end
+
+    StatKeeper.create(game_id: game.id, inning_number: inning_number,
+      pitcher_id: pitcher.id, batter_id: batter.id, fielder_id: fielder.id,
+      batting_team_id: batter.team, fielding_team_id: fielding_team,
+      strike_zone: strike_zone, swing: swing, contact: contact,
+      contact_result: contact_result)
   end
 
   def contact_check
@@ -105,6 +128,7 @@ class Pitch < ActiveRecord::Base
     fielder_number
   end
 
+
   def extra_bases_checker
     if hit_or_fielded == :hit
       bases_do = batter.extra_bases?
@@ -121,3 +145,4 @@ class Pitch < ActiveRecord::Base
   end
 
 end
+

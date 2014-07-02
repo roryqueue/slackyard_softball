@@ -1,5 +1,3 @@
-require 'pry'
-
 class BasePath
   attr_accessor :run_count, :man_on_first, :man_on_second, :man_on_third
 

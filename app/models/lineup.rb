@@ -30,15 +30,5 @@ class Lineup < ActiveRecord::Base
   belongs_to :eight_up, class_name: "Player"
   belongs_to :ninth_up, class_name: "Player"
 
-  attr_accessor :positions, :batting_order, :score, :pitcher
-
-  # def initialize(positions, batting_order)
-  #   #for now positions are numeric positions - 1
-  #   @positions = positions
-  #   @batting_order = batting_order
-  #   @score = 0
-  #   @pitcher = positions[0]
-  # end
-
 end
 

@@ -1,12 +1,10 @@
-
-require_relative 'player'
-require_relative 'maths'
-
 class AtBat
-  attr_reader :pitcher, :batter, :fielding_team
+  attr_reader :pitcher, :batter, :fielding_team, :game
   attr_accessor :count, :result
 
-  def initialize(fielding_team, batter)
+  def initialize(game, inning_number, fielding_team, batter)
+    @game = game
+    @inning_number = inning_number
     @batter = batter
     @fielding_team = fielding_team
     @pitcher = fielding_team.pitcher
@@ -15,12 +13,11 @@ class AtBat
   end
 
   def play
-    pitch = Pitch.new(fielding_team, batter)
+    pitch = Pitch.new(game, inning_number, fielding_team, batter)
     update_count(pitch)
     until result_test(pitch) != nil
-    pitch = Pitch.new(fielding_team, batter)
+    pitch = Pitch.new(game, inning_number, fielding_team, batter)
     update_count(pitch)
-    puts "#{count.pitches} pitches, #{count.balls} balls, #{count.strikes} strikes"
     end
   end
 
