@@ -10,8 +10,8 @@ class CreateStatKeepers < ActiveRecord::Migration
       t.integer :fielding_team_id, null: false
       t.boolean :strike_zone, null: false
       t.boolean :swing, null: false
-      t.boolean :contact, null: false, default: false
-      t.string :contact_result, null: false
+      t.boolean :contact, default: false
+      t.string :contact_result
       t.timestamps
     end
   end

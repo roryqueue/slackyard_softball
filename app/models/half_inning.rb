@@ -61,13 +61,13 @@ class HalfInning
 
   def single(player)
     if base_path.man_on_third != nil
-      man_on_home = base_path.man_on_third
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_third
+      add_run(base_path.man_on_home, player)
       base_path.man_on_third = nil
     end
     if base_path.man_on_second != nil
-      man_on_home = base_path.man_on_second
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_second
+      add_run(base_path.man_on_home, player)
       base_path.man_on_second = nil
     end
     if base_path.man_on_first != nil
@@ -79,18 +79,18 @@ class HalfInning
 
   def double(player)
     if base_path.man_on_third != nil
-      man_on_home = base_path.man_on_third
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_third
+      add_run(base_path.man_on_home, player)
       base_path.man_on_third = nil
     end
     if base_path.man_on_second != nil
-      man_on_home = base_path.man_on_second
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_second
+      add_run(base_path.man_on_home, player)
       base_path.man_on_second = nil
     end
     if base_path.man_on_first != nil
-      man_on_home = base_path.man_on_first
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_first
+      add_run(base_path.man_on_home, player)
       base_path.man_on_first = nil
     end
     base_path.man_on_second = player
@@ -98,18 +98,18 @@ class HalfInning
 
   def triple(player)
     if base_path.man_on_third != nil
-      man_on_home = base_path.man_on_third
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_third
+      add_run(base_path.man_on_home, player)
       base_path.man_on_third = nil
     end
     if base_path.man_on_second != nil
-      man_on_home = base_path.man_on_second
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_second
+      add_run(base_path.man_on_home, player)
       base_path.man_on_second = nil
     end
     if base_path.man_on_first != nil
-      man_on_home = base_path.man_on_first
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_first
+      add_run(base_path.man_on_home, player)
       base_path.man_on_first = nil
     end
     base_path.man_on_third = player
@@ -117,31 +117,32 @@ class HalfInning
 
   def homerun(player)
     if base_path.man_on_third != nil
-      man_on_home = base_path.man_on_third
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_third
+      add_run(base_path.man_on_home, player)
       base_path.man_on_third = nil
     end
     if base_path.man_on_second != nil
-      man_on_home = base_path.man_on_second
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_second
+      add_run(base_path.man_on_home, player)
       base_path.man_on_second = nil
     end
     if base_path.man_on_first != nil
-      man_on_home = base_path.man_on_first
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_first
+      add_run(base_path.man_on_home, player)
       base_path.man_on_first = nil
     end
-    man_on_home = player
-    add_run(man_on_home, player)
+    base_path.man_on_home = player
+    add_run(base_path.man_on_home, player)
   end
 
   def walk(player)
     if base_path.man_on_third != nil && base_path.man_on_second != nil && base_path.man_on_first != nil
-      add_run(man_on_home, player)
+      base_path.man_on_home = base_path.man_on_third
+      add_run(base_path.man_on_home, player)
       base_path.man_on_third = nil
     end
-    if base_path.man_on_second != nil
-      base_path.man_on_third = base_path.man_on_second && base_path.man_on_first != nil
+    if base_path.man_on_second != nil && base_path.man_on_first != nil
+      base_path.man_on_third = base_path.man_on_second
       base_path.man_on_second = nil
     end
     if base_path.man_on_first != nil
@@ -153,7 +154,9 @@ class HalfInning
 
   def add_run(scored_by, batted_in_by)
     base_path.run_count += 1
-    ScoreKeeper.create(pitcher_id: pitcher, batter_id: batted_in_by.id, scorer_id: scored_by.id, hitting_team_id: batting_team.id , fielding_team_id: fielding_team.id, game_id: game.id, inning_number: inning_number)
+    ScoreKeeper.create(pitcher_id: pitcher.id, batter_id: batted_in_by.id,
+      scorer_id: scored_by.id, batting_team_id: batting_team.id,
+      fielding_team_id: fielding_team.id, game_id: game.id, inning_number: inning_number)
   end
 
 end

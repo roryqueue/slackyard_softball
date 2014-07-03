@@ -1,5 +1,5 @@
 class AtBat
-  attr_reader :pitcher, :batter, :fielding_team, :game
+  attr_reader :pitcher, :batter, :fielding_team, :game, :inning_number
   attr_accessor :count, :result
 
   def initialize(game, inning_number, fielding_team, batter)

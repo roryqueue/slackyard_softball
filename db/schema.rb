@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20140702002707) do
   enable_extension "plpgsql"
 
   create_table "games", force: true do |t|
-    t.integer "home_lineup_id", null: false
-    t.integer "away_lineup_id", null: false
-    t.integer "home_score"
-    t.integer "away_score"
+    t.integer "home_team_lineup_id",             null: false
+    t.integer "away_team_lineup_id",             null: false
+    t.integer "home_score",          default: 0
+    t.integer "away_score",          default: 0
   end
 
   create_table "lineups", force: true do |t|
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140702002707) do
     t.integer "fifth_up_id",       null: false
     t.integer "sixth_up_id",       null: false
     t.integer "seventh_up_id",     null: false
-    t.integer "eight_up_id",       null: false
+    t.integer "eighth_up_id",      null: false
     t.integer "ninth_up_id",       null: false
     t.string  "nickname"
   end
@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 20140702002707) do
     t.integer  "fielding_team_id",                 null: false
     t.boolean  "strike_zone",                      null: false
     t.boolean  "swing",                            null: false
-    t.boolean  "contact",          default: false, null: false
-    t.string   "contact_result",                   null: false
+    t.boolean  "contact",          default: false
+    t.string   "contact_result"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

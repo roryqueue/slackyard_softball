@@ -1,7 +1,10 @@
 class TeamManager
-  attr_accessor :positions, :batting_order, :score, :pitcher
+  attr_reader :positions, :batting_order, :id, :pitcher, :lineup
+  attr_accessor :score
 
   def initialize(lineup)
+    @id = lineup.team_id
+    @lineup = lineup
     #for now positions are numeric positions - 1
     @positions = get_positions
     @batting_order = get_batting_order
@@ -15,9 +18,9 @@ class TeamManager
   end
 
   def get_batting_order
-    [lineup.first_up, lineup.second_up, lineup.third_up,
+    BattingOrder.new([lineup.first_up, lineup.second_up, lineup.third_up,
       lineup.fourth_up, lineup.fifth_up, lineup.sixth_up,
-      lineup.seventh_up, lineup.eighth_up, lineup.ninth_up]
+      lineup.seventh_up, lineup.eighth_up, lineup.ninth_up])
   end
 
 end

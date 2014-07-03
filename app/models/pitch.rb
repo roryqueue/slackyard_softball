@@ -1,6 +1,14 @@
+def log_five(a_factor, b_factor)
+  win_percentage_A = a_factor.to_i / 100.0
+  win_percentage_B = b_factor.to_i / 100.0
+  (win_percentage_A - win_percentage_A * win_percentage_B)/
+  (win_percentage_A + win_percentage_B - 2.0 * win_percentage_A * win_percentage_B)
+end
+
 class Pitch
-  include Maths
-  attr_reader :fielding_team, :pitcher, :batter, :placement, :swing, :contact, :fair_or_foul, :hit_or_fielded, :hit_type, :fielder_position, :out_or_error, :game
+  attr_reader :game, :inning_number, :fielding_team, :pitcher, :batter
+  attr_reader :placement, :swing, :contact, :fair_or_foul, :hit_or_fielded
+  attr_reader :hit_type, :fielder_position, :out_or_error
 
   def initialize(game, inning_number, fielding_team, batter)
     @game = game
@@ -42,14 +50,14 @@ class Pitch
 
     StatKeeper.create(game_id: game.id, inning_number: inning_number,
       pitcher_id: pitcher.id, batter_id: batter.id, fielder_id: fielder.id,
-      batting_team_id: batter.team, fielding_team_id: fielding_team,
+      batting_team_id: batter.team.id, fielding_team_id: fielding_team.id,
       strike_zone: strike_zone, swing: swing, contact: contact,
       contact_result: contact_result)
   end
 
   def contact_check
     if swing
-      ct_check = batter.contact?(placement, pitcher.throwing_accuracy)
+      ct_check = batter.contact?(placement, pitcher.pitching_accuracy)
     else ct_check = nil
     end
     ct_check
@@ -57,7 +65,7 @@ class Pitch
 
   def fair_foul_check
     if contact
-      ff_check = batter.fair_ball?(pitcher.throwing_velocity)
+      ff_check = batter.fair_ball?(pitcher.pitching_craftiness)
     else ff_check = nil
     end
     ff_check
