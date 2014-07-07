@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'capybara'
+  gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'dotenv-rails'
+  gem 'mailcatcher'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'

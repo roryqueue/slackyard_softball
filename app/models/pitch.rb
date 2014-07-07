@@ -48,6 +48,8 @@ class Pitch
       contact_result = fair_or_foul
     end
 
+    # may want to pass team all the way through at-bat and pitch from the top where it is started at lineup
+    # this way shouldn't be a problem for now (as long as player and lineup have the same team, which they should)
     StatKeeper.create(game_id: game.id, inning_number: inning_number,
       pitcher_id: pitcher.id, batter_id: batter.id, fielder_id: fielder.id,
       batting_team_id: batter.team.id, fielding_team_id: fielding_team.id,
