@@ -26,13 +26,33 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def edit
+    @league = League.find(params[:id])
+  end
+
+  def update
+    @league = League.find(params[:id])
+
+    if commissioner?
+      @league.update(league_params)
+      flash[:notice] = "#{@league.name} has been successfully updated!"
+      redirect_to league_path(@league)
+    end
+  end
+
   def destroy
     @league = League.find(params[:id])
 
-    if current_user == @league.commissioner
+    if commissioner?
       @league.destroy
+
+      flash[:notice] = "#{@league.name} has been permanently shut down."
       redirect_to leagues_path
     end
+  end
+
+  def commissioner?
+    current_user == @league.commissioner
   end
 
   private
