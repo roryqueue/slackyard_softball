@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "User signs up through signup page"  do
   # As a user,
@@ -28,7 +28,7 @@ feature "User signs up through signup page"  do
       click_on "Sign in"
     end
 
-    expect(page).to have_content "Logout"
+    expect(page).to have_content "Sign out"
     expect(page).to have_content "Edit account"
   end
 
@@ -45,7 +45,7 @@ feature "User signs up through signup page"  do
       click_on "Sign in"
     end
 
-    expect(page).not_to have_content "Logout"
+    expect(page).not_to have_content "Sign out"
     expect(page).to have_content "invalid"
   end
 
