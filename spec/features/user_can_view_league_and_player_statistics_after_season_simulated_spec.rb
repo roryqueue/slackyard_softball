@@ -1,17 +1,17 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-feature "User" do
-  # As a User
-  # I want to
-  # So
-  #
-  # Acceptance Criteria:
-  #
-  # * I see
-  # * I
+# feature "User" do
+#   # As a User
+#   # I want to
+#   # So
+#   #
+#   # Acceptance Criteria:
+#   #
+#   # * I see
+#   # * I
 
-  it "displays" do
-    visit '/]'
-    expect(page).to have_content ""
-  end
-end
+#   it "displays" do
+#     visit '/'
+#     expect(page).to have_content ""
+#   end
+# end
