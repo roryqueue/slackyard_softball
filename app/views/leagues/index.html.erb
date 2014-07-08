@@ -2,8 +2,9 @@
 <ol>
   <% @leagues.each do |league| %>
     <li>
-      <h1><%= link_to league.name, league_path(league.id) %></h1>
+      <h2><%= link_to league.name, league_path(league.id) %></h2>
       <ul>
+      <!-- might be too many db calls -->
         <% league.teams.games.last(4) do |game| %>
         <li><%= link_to game.home_team.name, team_path(game.home_team.id)"  #{game.home_score}" %></li>
         <li><%= link_to game.away_team.name, team_path(game.away_team.id)"  #{game.away_score}" %></li>
