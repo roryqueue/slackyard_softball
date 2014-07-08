@@ -1,0 +1,8 @@
+<h1>Results</h1>
+<h2><%= "#{@game.away_team_lineup.team}(#{@away_pitcher.last_name}) #{@game.away_score}" %></h2>
+<h2><%= "#{@game.home_team_lineup.team}(#{@home_pitcher.last_name}) #{@game.home_score}" %></h2>
+<ol>
+  <% @runs.each do |run| %>
+    <li><%= "#{run.scorer} batted in by #{run.hitter} off #{run.pitcher}" %></li>
+  <% end %>
+</ol>
