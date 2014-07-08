@@ -1,14 +1,18 @@
 require 'spec_helper'
 
 feature "User visits leagues index" do
-  # As a User
-  # I want to see all the events on one page
-  # So that I know what events are happening
+  # As a visitor,
+  # I want to see an list of league activity,
+  # so I can read about what's going on.
+
+  # As a visitor,
+  # I want to view league details,
+  # so I can see who is doing well and poorly.
   #
   # Acceptance Criteria:
   #
-  # * I see a title that lets me know I'm on the right page
-  # * I see all of the events listed
+  # * I see titles of the index and show pages
+  # * I see an existing league and team
 
   it "finds index page title and league" do
     league = FactoryGirl.create(:league)
