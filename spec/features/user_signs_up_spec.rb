@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "User signs up through signup page"  do
   # As a user,
@@ -10,44 +10,42 @@ feature "User signs up through signup page"  do
   # I am included as a User if I signup correctly
 
   it "creates a new user if correctly inputted" do
-    visit "/users/sign_up"
+    visit new_user_registration_path
 
-    fill_in " Email", with: "rjamesquinlan@gmail.com"
-    fill_in " User name", with: "rory"
+    fill_in "Email", with: "rjamesquinlan@gmail.com"
+    fill_in "User name", with: "rory"
 
-    fill_in " Password", with: "password"
-    fill_in " Confirm password", with: "password"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
-    within('.form-actions') do
+    within('.new_user') do
       click_on "Sign up"
     end
 
-    expect(page).to have_content "Logout"
+    expect(page).to have_content "Sign out"
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
 
   it "does not create a new user if nothing is inputted" do
-    visit "/users/sign_up"
+    visit new_user_registration_path
 
-    within('.form-actions') do
+    within('.new_user') do
       click_on "Sign up"
     end
 
-    expect(page).to have_content "Please review the problems below:"
-    count = page.body.scan("can't be blank").count
-    expect(count).to eql(4)
+    expect(page).to have_content "can't be blank"
 
   end
 
   it "does not create a new user if password confirmation does not match" do
-    visit "/users/sign_up"
+    visit new_user_registration_path
 
-    fill_in " Email", with: "rjamesquinlan@gmail.com"
-    fill_in " Password", with: "password"
-    fill_in " Confirm password", with: "nomatch"
+    fill_in "Email", with: "rjamesquinlan@gmail.com"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "nomatch"
 
-    within('.form-actions') do
+    within('.new_user') do
       click_on "Sign up"
     end
 

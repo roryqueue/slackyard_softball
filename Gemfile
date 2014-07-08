@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara'
   gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'dotenv-rails'
   gem 'mailcatcher'
+  gem "pry"
+  gem "database_cleaner"
 end
 
 gem 'devise'
@@ -47,6 +49,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-group :development, :test do
-  gem "pry"
-end
