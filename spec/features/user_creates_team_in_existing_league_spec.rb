@@ -18,12 +18,11 @@ feature "User creates a team in an existing league" do
 
     sign_in_as(user)
 
-    visit "/"
+    visit "/leagues/#{league.id}"
 
     click_on "Create a new team"
 
     fill_in " Team name", with: team.name
-    select league.name, from: "League"
 
     click_on "Create team"
 
@@ -39,15 +38,13 @@ feature "User creates a team in an existing league" do
 
     sign_in_as(user)
 
-    visit "/"
+    visit "/leagues/#{league.id}"
 
     click_on "Create a new team"
 
-    select league.name, from: "League"
-
     click_on "Create team"
 
-    expect(page).not_to have_content league.name
+    expect(page).not_to have_content "Success"
     expect(page).to have_content "can't be blank"
   end
 

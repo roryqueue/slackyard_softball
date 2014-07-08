@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20140707191724) do
   end
 
   create_table "leagues", force: true do |t|
-    t.string  "name",            null: false
-    t.integer "commissioner_id", null: false
+    t.string   "name",            null: false
+    t.integer  "commissioner_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lineups", force: true do |t|
