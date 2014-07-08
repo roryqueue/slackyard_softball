@@ -1,0 +1,6 @@
+<h1>Recent Scores<h1>
+<ol>
+  <% @games.each do |game| %>
+    <li><%= link_to "#{game.away_team} #{game.away_score}, #{game.home_team} #{game.home_score}", game_path(game) %></li>
+  <% end %>
+</ol>
