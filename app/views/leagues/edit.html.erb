@@ -1,0 +1,16 @@
+<h2>Edit League Info:</h2>
+
+<%= simple_form_for @league, method: :patch do |f| %>
+  <%= f.input :name, required: true, label: "Name"  %>
+  <%= f.label :commissioner %>:
+  <%= f.collection_select(:user, :id, @league.teams.each.user, :id, :user_name, prompt: true) %>
+  <%= f.button :submit %>
+<% end %>
+
+<h2>Drastic Measures:</h2>
+
+<% @league.teams.each do |team| %>
+  <%= link_to "Boot #{team.name} from league", team_path(team), method: :delete %>
+<% end %>
+
+<%= link_to "Close down league", league_path(@league), method: :delete %>
