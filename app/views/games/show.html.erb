@@ -3,6 +3,6 @@
 <h2><%= "#{@game.home_team_lineup.team}(#{@home_pitcher.last_name}) #{@game.home_score}" %></h2>
 <ol>
   <% @runs.each do |run| %>
-    <li><%= "#{run.scorer} batted in by #{run.hitter} off #{run.pitcher}" %></li>
+    <li><%= "#{run.scorer} batted in by #{run.batter} off #{run.pitcher}" %></li>
   <% end %>
 </ol>

@@ -48,8 +48,10 @@ class AtBat
 
   def result_test(pitch)
     result = nil
+    detail = nil
     if pitch.fair_foul_check == :foulout || strikeout?
       result = :out
+      detail = strikeout? || :foulout
     elsif pitch.hit_or_fielded == :hit
       result = pitch.hit_type
     elsif walk?
@@ -58,6 +60,9 @@ class AtBat
       result = pitch.out_or_error
     end
     @result = result
+    if result == :out
+      OutKeeper.create(pitcher_id: pitcher.id, batter_id: batter.id, detail: detail)
+    end
     result
   end
 
