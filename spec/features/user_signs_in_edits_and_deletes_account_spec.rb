@@ -19,12 +19,12 @@ feature "User signs up through signup page"  do
 
     user = FactoryGirl.create(:user)
 
-    visit "/users/sign_in"
+    visit new_user_session_path
 
-    fill_in " User name", with: user.user_name
-    fill_in " Password", with: user.password
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
 
-    within('.form-actions') do
+    within('.new_user') do
       click_on "Sign in"
     end
 
@@ -36,17 +36,17 @@ feature "User signs up through signup page"  do
 
     user = FactoryGirl.create(:user)
 
-    visit "/users/sign_in"
+    visit new_user_session_path
 
-    fill_in " User name", with: user.user_name
-    fill_in " Password", with: ("not" + user.password)
+    fill_in "Email", with: user.email
+    fill_in "Password", with: ("not" + user.password)
 
-    within('.form-actions') do
+    within('.new_user') do
       click_on "Sign in"
     end
 
     expect(page).not_to have_content "Sign out"
-    expect(page).to have_content "invalid"
+    expect(page).to have_content "Invalid"
   end
 
   it "edits account information" do
@@ -59,14 +59,14 @@ feature "User signs up through signup page"  do
 
     click_on "Edit account"
 
-    fill_in " Password", with: user.password
-    fill_in " Confirm password", with: user.password
+    fill_in "Current password", with: user.password
 
-    within('.form-actions') do
-      click_on "Edit"
-    end
+    fill_in "Password", with: "newpassword1"
+    fill_in "Password confirmation", with: "newpassword1"
 
-    expect(page).to have_content "Updated successfully"
+      click_on "Update"
+
+    expect(page).to have_content "You updated your account successfully."
   end
 
   it "deletes account information" do
@@ -79,11 +79,9 @@ feature "User signs up through signup page"  do
 
     click_on "Edit account"
 
-    within('.form-actions') do
-      click_on "Delete my account"
-    end
+    click_on "Cancel my account"
 
-    expect(page).to have_content "Account deleted"
+    expect(page).to have_content "cancelled"
     expect(page).to have_content "Sign up"
   end
 
