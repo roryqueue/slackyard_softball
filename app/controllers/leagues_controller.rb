@@ -2,7 +2,8 @@ class LeaguesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @leagues = League.order("updated_at DESC")
+    @leagues = League.order("updated_at DESC").take(4)
+    @games = Game.order("updated_at DESC").take(8)
   end
 
   def show

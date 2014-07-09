@@ -1,5 +1,5 @@
 <h1>@league.name</h1>
-<% if current_user.id == @league.commissioner_id %>
+<% if current_user.try(:id) == @league.commissioner_id %>
   <%= link_to 'Edit', edit_question_path(@question) %>
 <% end %>
 <h2>"Standings"<h2>
@@ -16,7 +16,7 @@
     <td><%= team.losses %></td>
   </tr>
 </table>
-
+<% end %>
 <h2>"League Leaders"</h2>
 <h3>"Hitting"<h3>
   <% @league.players.order("batting_average DESC").take(5).each do |player| %>
@@ -26,6 +26,7 @@
     <li><%= "#{player.batting_average} AVG" %></li>
     <li><%= "#{player.home_runs} HR" %></li>
   </ol>
+  <% end %>
 <h3>"Pitching"<h3>
   <% @league.players.order("era DESC").take(5).each do |player| %>
   <ol>
@@ -34,3 +35,4 @@
     <li><%= "#{player.era} ERA" %></li>
     <li><%= "#{player.wins} - #{player.losses}" %></li>
   </ol>
+  <% end %>

@@ -10,7 +10,8 @@ class Lineup < ActiveRecord::Base
   validates_numericality_of :fourth_up_id, :fifth_up_id, :sixth_up_id, :seventh_up_id, :eighth_up_id, :ninth_up_id
 
   belongs_to :team
-  has_many :games
+  has_many :home_games, class_name: "Game", foreign_key: :home_team_lineup_id, inverse_of: :home_team_lineup
+  has_many :away_games, class_name: "Game", foreign_key: :away_team_lineup_id, inverse_of: :away_team_lineup
   belongs_to :pitcher, class_name: "Player"
   belongs_to :catcher, class_name: "Player"
   belongs_to :first_baseman, class_name: "Player"
@@ -30,5 +31,8 @@ class Lineup < ActiveRecord::Base
   belongs_to :eighth_up, class_name: "Player"
   belongs_to :ninth_up, class_name: "Player"
 
+  def games
+    #need to adjust for lineup in between those two models
+    Game.find(conditions: ["home_team_lineup_id = ? OR away_team_lineup_id = ?", id, id])
+  end
 end
-

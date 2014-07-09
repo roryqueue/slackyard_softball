@@ -3,12 +3,10 @@ class Team < ActiveRecord::Base
 
   has_many :players
   has_many :lineups
-  has_many :games, through: :lineups
+  has_many :home_games, through: :lineup, source: :game
+  has_many :away_games, through: :lineup, source: :game
   has_many :pitches
   has_many :runs
 
-  def games
-    #need to adjust for lineup in between those two models
-    Game.find(conditions: ["home_team_id = ? OR away_team_id = ?", id, id])
-  end
 end
+
