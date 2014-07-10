@@ -32,7 +32,6 @@ class Lineup < ActiveRecord::Base
   belongs_to :ninth_up, class_name: "Player"
 
   def games
-    #need to adjust for lineup in between those two models
     Game.find(conditions: ["home_team_lineup_id = ? OR away_team_lineup_id = ?", id, id])
   end
 end

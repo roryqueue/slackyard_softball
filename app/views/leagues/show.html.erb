@@ -19,7 +19,7 @@
 <% end %>
 <h2>League Leaders</h2>
 <h3>Hitting<h3>
-  <% @league.batting_leaders.first(5).each do |player| %>
+  <% @league.homerun_leaders.first(5).each do |player| %>
   <ol>
     <li><h4><%= player.name %></h4></li>
     <li><%= player.team.name %></li>

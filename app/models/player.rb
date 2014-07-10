@@ -170,7 +170,7 @@ class Player < ActiveRecord::Base
   end
 
   def hit?
-    if rand(150 + batting_contact) > batting_contact
+    if rand(100 + batting_contact) > batting_contact
       ball = :fielded
     else
       ball = :hit
@@ -180,7 +180,7 @@ class Player < ActiveRecord::Base
 
   def extra_bases?
     #hits are: 67.6% singles, 19.5% doubles, 1.9% triples, 11.0% homeruns
-    roll = rand(280 + batting_power + speed)
+    roll = rand(130 + batting_power + speed)
     if roll < (batting_power / 2)
       hit = :homerun
     elsif roll < ((batting_power / 2) + (speed / 8))
