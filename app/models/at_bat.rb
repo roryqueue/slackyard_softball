@@ -61,7 +61,7 @@ class AtBat
     end
     @result = result
     if result == :out
-      OutKeeper.create(pitcher_id: pitcher.id, batter_id: batter.id, detail: detail)
+      OutKeeper.create(pitcher_id: pitcher.id, batter_id: batter.id, game_id: game.id, detail: detail)
     end
     puts result
     result

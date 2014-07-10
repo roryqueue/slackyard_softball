@@ -2,7 +2,7 @@
 <% if current_user.try(:id) == @league.commissioner_id %>
   <%= link_to 'Edit', edit_question_path(@question) %>
 <% end %>
-<h2>"Standings"<h2>
+<h2>Standings<h2>
 <table>
   <thead>
     <th>Team</th>
@@ -17,8 +17,8 @@
   </tr>
 </table>
 <% end %>
-<h2>"League Leaders"</h2>
-<h3>"Hitting"<h3>
+<h2>League Leaders</h2>
+<h3>Hitting<h3>
   <% @league.batting_leaders.first(5).each do |player| %>
   <ol>
     <li><h4><%= player.name %></h4></li>
@@ -27,8 +27,8 @@
     <li><%= "#{player.homeruns} HR" %></li>
   </ol>
   <% end %>
-<h3>"Pitching"<h3>
-  <% @league.era_leaders.first(5).each do |player| %>
+<h3>Pitching<h3>
+  <% @league.pitching_win_leaders.first(5).each do |player| %>
   <ol>
     <li><h4><%= player.name %></h4></li>
     <li><%= player.team.name %></li>

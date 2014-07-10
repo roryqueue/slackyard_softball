@@ -7,6 +7,7 @@ class Team < ActiveRecord::Base
   has_many :away_games, through: :lineup, source: :game
   has_many :pitches
   has_many :runs
+  belongs_to :league
 
   def games
     home_games = Game.where(home_team_lineup_id: Lineup.select(:id).where(team_id: self.id))
@@ -51,19 +52,19 @@ class Team < ActiveRecord::Base
   end
 
   def homeruns
-    StatKeeper.where(batter_id: Player.where(team_id: self.id)).count("contact_result = 'homerun'")
+    StatKeeper.where(batter_id: Player.where(team_id: self.id)).where(contact_result: 'homerun').count
   end
 
   def triples
-    StatKeeper.where(batter_id: Player.where(team_id: self.id)).count("contact_result = 'triple'")
+    StatKeeper.where(batter_id: Player.where(team_id: self.id)).where(contact_result: 'triple').count
   end
 
   def doubles
-    StatKeeper.where(batter_id: Player.where(team_id: self.id)).count("contact_result = 'double'")
+    StatKeeper.where(batter_id: Player.where(team_id: self.id)).where(contact_result: 'double').count
   end
 
   def singles
-    StatKeeper.where(batter_id: Player.where(team_id: self.id)).count("contact_result = 'single'")
+    StatKeeper.where(batter_id: Player.where(team_id: self.id)).where(contact_result: 'single').count
   end
 
   def rbis
@@ -77,21 +78,25 @@ class Team < ActiveRecord::Base
   def batting_average
     hits = self.homeruns + self.triples + self.doubles + self.singles
     outs = OutKeeper.where(batter_id: Player.where(team_id: self.id)).count
-    average = (hits / (hits + outs)).to_f.round(3)
+    unless outs.nil? || outs == 0
+      average = (hits / (hits + outs)).to_f.round(3)
+    end
   end
 
   def era
     runs = ScoreKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     outs = OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
-    era = runs / (outs * 27)
+    unless outs.nil? || outs == 0
+      era = runs / (outs * 27)
+    end
   end
 
   def strikeouts_thrown
-    OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count("detail = 'strikeout'")
+    OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).where(detail: 'strikeout').count
   end
 
   def batting_leaders
-    self.players.sort_by { |player| player.batting_average }.reverse!
+    self.players.sort_by { |player| if player.batting_average then player.batting_average end }.reverse!
   end
 
   def homerun_leaders
@@ -103,7 +108,7 @@ class Team < ActiveRecord::Base
   end
 
   def era_leaders
-    self.players.sort_by { |player| player.era }
+    self.players.sort_by { |player| if player.era then player.era end }
   end
 
   def pitching_win_leaders

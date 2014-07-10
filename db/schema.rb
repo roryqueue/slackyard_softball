@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140709214105) do
   create_table "out_keepers", force: true do |t|
     t.integer "pitcher_id", null: false
     t.integer "batter_id",  null: false
+    t.integer "game_id",    null: false
     t.string  "detail"
   end
 

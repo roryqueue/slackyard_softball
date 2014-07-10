@@ -20,19 +20,19 @@ class Player < ActiveRecord::Base
   end
 
   def homeruns
-    StatKeeper.where(batter_id: self.id).count("contact_result = 'homerun'")
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'homerun').count
   end
 
   def triples
-    StatKeeper.where(batter_id: self.id).count("contact_result = 'triple'")
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'triple').count
   end
 
   def doubles
-    StatKeeper.where(batter_id: self.id).count("contact_result = 'double'")
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'double').count
   end
 
   def singles
-    StatKeeper.where(batter_id: self.id).count("contact_result = 'single'")
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'single').count
   end
 
   def rbis
@@ -46,21 +46,21 @@ class Player < ActiveRecord::Base
   def batting_average
     hits = self.homeruns + self.triples + self.doubles + self.singles
     outs = OutKeeper.where(batter_id: self.id).count
-    if outs > 0
-      average = (hits / (hits + outs)).to_f.round(3)
+    unless outs.nil? || outs == 0
+      average = (hits.to_f / (hits.to_f + outs.to_f)).round(3)
     end
   end
 
   def era
     runs = ScoreKeeper.where(pitcher_id: self.id).count
     outs = OutKeeper.where(pitcher_id: self.id).count
-    if outs > 0
-      era = runs / (outs * 27)
+    unless outs.nil? || outs == 0
+      era = ((runs.to_f / outs.to_f) * 27.0).round(2)
     end
   end
 
   def strikeouts_thrown
-    OutKeeper.where(pitcher_id: self.id).count("detail = 'strikeout'")
+    OutKeeper.where(pitcher_id: self.id).where(detail: 'strikeout').count
   end
 
   def wins
