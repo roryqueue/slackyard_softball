@@ -87,7 +87,7 @@ class Team < ActiveRecord::Base
   end
 
   def strikeouts_thrown
-    OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count("detail == :strikeout")
+    OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count("detail = 'strikeout'")
   end
 
   def batting_leaders
@@ -103,7 +103,7 @@ class Team < ActiveRecord::Base
   end
 
   def era_leaders
-    self.players.sort_by { |player| player.era }.reverse!
+    self.players.sort_by { |player| player.era }
   end
 
   def pitching_win_leaders
