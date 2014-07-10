@@ -1,18 +1,18 @@
 class Player < ActiveRecord::Base
   belongs_to :team
-  attr_reader :first_name, :last_name, :batting_contact, :batting_power, :pitching_craftiness, :pitching_accuracy, :fielding, :speed
-
-  def initialize(first_name, last_name, batting_contact, batting_power,
-                pitching_craftiness, pitching_accuracy, fielding, speed)
-    @first_name = first_name
-    @last_name = last_name
-    @batting_contact = batting_contact
-    @batting_power = batting_power
-    @pitching_craftiness = pitching_craftiness
-    @pitching_accuracy = pitching_accuracy
-    @fielding = fielding
-    @speed = speed
-  end
+  # attr_reader :first_name, :last_name, :batting_contact, :batting_power, :pitching_craftiness, :pitching_accuracy, :fielding, :speed
+  #
+  # def initialize(first_name, last_name, batting_contact, batting_power,
+  #               pitching_craftiness, pitching_accuracy, fielding, speed)
+  #   @first_name = first_name
+  #   @last_name = last_name
+  #   @batting_contact = batting_contact
+  #   @batting_power = batting_power
+  #   @pitching_craftiness = pitching_craftiness
+  #   @pitching_accuracy = pitching_accuracy
+  #   @fielding = fielding
+  #   @speed = speed
+  # end
 
 ################# STAT HELPERS #################
 
@@ -92,7 +92,6 @@ class Player < ActiveRecord::Base
     losses = home_losses + away_losses
   end
 
-  # Message.where(user_id: Profile.select("user_id").where(gender: 'm'))
 ################# PITCHER ######################
 
   def pitch_placement
@@ -164,7 +163,7 @@ class Player < ActiveRecord::Base
   end
 
   def hit?
-    if rand(100 + batting_contact) > batting_contact
+    if rand(150 + batting_contact) > batting_contact
       ball = :fielded
     else
       ball = :hit

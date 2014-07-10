@@ -38,4 +38,3 @@ Lineup.create(team_id: yanks.id, pitcher_id: yanks0.id, catcher_id: yanks1.id, f
   center_fielder_id: yanks7.id, right_fielder_id: yanks8.id, first_up_id: yanks0.id, second_up_id: yanks1.id,
   third_up_id: yanks2.id, fourth_up_id: yanks3.id, fifth_up_id: yanks4.id, sixth_up_id: yanks5.id,
   seventh_up_id: yanks6.id, eighth_up_id: yanks7.id, ninth_up_id: yanks8.id)
-Game.create()
