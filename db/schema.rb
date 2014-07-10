@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20140709214105) do
 
   create_table "teams", force: true do |t|
     t.string  "name",      null: false
-    t.integer "league_id"
+    t.integer "league_id", null: false
   end
 
   create_table "users", force: true do |t|

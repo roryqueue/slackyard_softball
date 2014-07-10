@@ -5,8 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  sox = Team.create(name: 'Sox')
-  yanks = Team.create(name: 'Yanks')
+
+  american_league = League.create(name: "AL", commissioner_id: 1)
+  sox = Team.create(name: 'Sox', league_id: american_league.id)
+  yanks = Team.create(name: 'Yanks', league_id: american_league.id)
 
   sox0 = Player.create(team_id: sox.id, first_name: "Justin", last_name: "Verlander", batting_contact: 70, batting_power: 70, pitching_craftiness: 70, pitching_accuracy: 70, fielding: 70, speed: 70)
   sox1 = Player.create(team_id: sox.id, first_name: "Alex", last_name: "Gonzalez", batting_contact: 70, batting_power: 70, pitching_craftiness: 70, pitching_accuracy: 70, fielding: 70, speed: 70)

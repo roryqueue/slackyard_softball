@@ -8,7 +8,7 @@ feature 'user is able to search for league' do
   imperfect_match_league = FactoryGirl.create(:league, name: "american")
   non_match_league = FactoryGirl.create(:league, name: "international")
 
-  visit "/league"
+  visit leagues_path
 
   fill_in "search", with: league.name
   click_on "Search"

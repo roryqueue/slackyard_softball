@@ -1,12 +1,21 @@
 <h1>Leagues Around Softball Sim</h1>
+
+<h2>Active Leagues</h2>
+<ol>
+  <% @leagues.each do |league| %>
+    <li><%= link_to league.name, league_path(league) %></li>
+  <% end %>
+</ol>
+
+<h2>Recent Games</h2>
 <ol>
   <% @games.each do |game| %>
     <li>
-      <h2><%= link_to home_team.league.name, league_path(league.id) %></h2>
+      <h2><%= link_to game.home_team_lineup.team.league.name, game_path(game) %></h2>
       <ul>
-        <li><%= link_to game.home_team.name, team_path(game.home_team.id) %></li>
+        <li><%= link_to game.home_team_lineup.team.name, team_path(game.home_team_lineup.team.id) %></li>
         <li><%= game.home_score %></li>
-        <li><%= link_to game.away_team.name, team_path(game.away_team.id) %></li>
+        <li><%= link_to game.away_team_lineup.team.name, team_path(game.away_team_lineup.team.id) %></li>
         <li><%= game.away_score %></li>
         <li><%= link_to "Box Score", game_path(game.id) %></li>
       </ul>
