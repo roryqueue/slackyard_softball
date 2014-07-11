@@ -10,7 +10,7 @@
   sox = Team.create(name: 'Sox', league_id: american_league.id)
   yanks = Team.create(name: 'Yanks', league_id: american_league.id)
 
-  sox0 = Player.create(team_id: sox.id, first_name: "Justin", last_name: "Verlander", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
+  sox0 = Player.create(team_id: sox.id, first_name: "Justin", last_name: "Verlander", batting_contact: 90, batting_power: 90, pitching_craftiness: 50, pitching_accuracy: 50, fielding: 90, speed: 90)
   sox1 = Player.create(team_id: sox.id, first_name: "Alex", last_name: "Gonzalez", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
   sox2 = Player.create(team_id: sox.id, first_name: "Hanley", last_name: "Ramirez", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
   sox3 = Player.create(team_id: sox.id, first_name: "Xander", last_name: "Bogaerts", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
@@ -20,7 +20,7 @@
   sox7 = Player.create(team_id: sox.id, first_name: "Xander", last_name: "Bogaerts", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
   sox8 = Player.create(team_id: sox.id, first_name: "Xander", last_name: "Bogaerts", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
 
-  yanks0 = Player.create(team_id: yanks.id, first_name: "CC", last_name: "Sabathia", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
+  yanks0 = Player.create(team_id: yanks.id, first_name: "CC", last_name: "Sabathia", batting_contact: 90, batting_power: 90, pitching_craftiness: 50, pitching_accuracy: 50, fielding: 90, speed: 90)
   yanks1 = Player.create(team_id: yanks.id, first_name: "David", last_name: "Ortiz", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
   yanks2 = Player.create(team_id: yanks.id, first_name: "Miguel", last_name: "Cabrera", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
   yanks3 = Player.create(team_id: yanks.id, first_name: "Bryce", last_name: "Harper", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)

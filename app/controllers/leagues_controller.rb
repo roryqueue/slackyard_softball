@@ -19,8 +19,8 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     @league.commissioner_id = current_user.id if current_user
 
-    if @beard.save
-      flash[:notice] = "Your league '#{league.name}' has been created! Make changes to is on the League Commissioner page."
+    if @league.save
+      flash[:notice] = "Your league '#{league.name}' has been created!"
       redirect_to leagues_path
     else
       flash.now[:notice] = 'Your league could not be created!'

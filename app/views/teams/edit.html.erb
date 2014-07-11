@@ -1,0 +1,10 @@
+<h2>Change Team Name:</h2>
+
+<%= simple_form_for @team, method: :patch do |f| %>
+  <%= f.input :name, required: true, label: "Name"  %>
+  <%= f.button :submit %>
+<% end %>
+
+<h2>Drastic Measures:</h2>
+
+<%= link_to "Close down team", team_path(@team), method: :delete %>
