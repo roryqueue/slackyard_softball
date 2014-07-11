@@ -8,8 +8,8 @@
   user = User.create!(user_name: "Bob", email: "bob@example.com", password: "bobobobob", password_confirmation: "bobobobob")
     # encrypted_password: "#$taawktljasktlw4aaglj")
   american_league = League.create!(name: "AL", commissioner_id: user.id)
-  sox = Team.create!(name: 'Sox', league_id: american_league.id, user_id: user.id)
-  yanks = Team.create!(name: 'Yanks', league_id: american_league.id, user_id: user.id)
+  sox = Team.create!(name: "sox", league_id: american_league.id, user_id: user.id)
+  yanks = Team.create!(name: "yanks", league_id: american_league.id, user_id: user.id)
 
   sox0 = Player.create!(team_id: sox.id, first_name: "Justin", last_name: "Verlander", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)
   sox1 = Player.create!(team_id: sox.id, first_name: "Alex", last_name: "Gonzalez", batting_contact: 90, batting_power: 90, pitching_craftiness: 90, pitching_accuracy: 90, fielding: 90, speed: 90)

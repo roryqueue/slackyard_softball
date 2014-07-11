@@ -80,7 +80,7 @@ class Team < ActiveRecord::Base
     hits = self.homeruns + self.triples + self.doubles + self.singles
     outs = OutKeeper.where(batter_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0
-      average = (hits / (hits + outs)).to_f.round(3)
+      average = (hits.to_f / (hits + outs).to_f).round(3)
     end
   end
 
@@ -88,7 +88,7 @@ class Team < ActiveRecord::Base
     runs = ScoreKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     outs = OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0
-      era = runs / (outs * 27)
+      era = runs.to_f / (outs * 27).to_f.round(2)
     end
   end
 
