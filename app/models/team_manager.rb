@@ -22,5 +22,4 @@ class TeamManager
       lineup.fourth_up, lineup.fifth_up, lineup.sixth_up,
       lineup.seventh_up, lineup.eighth_up, lineup.ninth_up])
   end
-
 end

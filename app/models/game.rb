@@ -3,8 +3,9 @@ class Game < ActiveRecord::Base
 
   belongs_to :home_team_lineup, class_name: "Lineup"
   belongs_to :away_team_lineup, class_name: "Lineup"
-  # belongs_to :home_team, through: :home_team_lineup, class_name: "Team"
-  # belongs_to :away_team, through: :away_team_lineup, class_name: "Team"
   has_many :pitches
   has_many :runs
+  has_many :score_keepers
+  has_many :stat_keepers
+  has_many :out_keepers
 end

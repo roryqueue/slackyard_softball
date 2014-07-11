@@ -1,36 +1,38 @@
-<h1>@league.name</h1>
-<% if current_user.id == @league.commissioner_id %>
+<h1><%= @league.name %></h1>
+<% if current_user.try(:id) == @league.commissioner_id %>
   <%= link_to 'Edit', edit_question_path(@question) %>
 <% end %>
-<h2>"Standings"<h2>
+<h2>Standings<h2>
 <table>
   <thead>
     <th>Team</th>
     <th>Wins</th>
     <th>Losses</th>
   </thead>
-  <% @league.teams.order("wins DESC").each do |team| %>
+  <% @standings.each do |team| %>
   <tr>
     <td><%= team.name %></td>
     <td><%= team.wins %></td>
     <td><%= team.losses %></td>
   </tr>
 </table>
-
-<h2>"League Leaders"</h2>
-<h3>"Hitting"<h3>
-  <% @league.players.order("batting_average DESC").take(5).each do |player| %>
+<% end %>
+<h2>League Leaders</h2>
+<h3>Hitting<h3>
+  <% @league.homerun_leaders.first(5).each do |player| %>
   <ol>
     <li><h4><%= player.name %></h4></li>
     <li><%= player.team.name %></li>
     <li><%= "#{player.batting_average} AVG" %></li>
-    <li><%= "#{player.home_runs} HR" %></li>
+    <li><%= "#{player.homeruns} HR" %></li>
   </ol>
-<h3>"Pitching"<h3>
-  <% @league.players.order("era DESC").take(5).each do |player| %>
+  <% end %>
+<h3>Pitching<h3>
+  <% @league.pitching_win_leaders.first(5).each do |player| %>
   <ol>
     <li><h4><%= player.name %></h4></li>
     <li><%= player.team.name %></li>
     <li><%= "#{player.era} ERA" %></li>
     <li><%= "#{player.wins} - #{player.losses}" %></li>
   </ol>
+  <% end %>

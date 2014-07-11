@@ -17,7 +17,7 @@ feature "User visits leagues index" do
   it "finds index page title and league" do
     league = FactoryGirl.create(:league)
 
-    visit '/league'
+    visit leagues_path
     expect(page).to have_content "Leagues"
     expect(page).to have_content league.name
   end
@@ -26,7 +26,7 @@ feature "User visits leagues index" do
     league = FactoryGirl.create(:league)
     team = FactoryGirl.create(:team, league_id: league.id)
 
-    visit "/league/#{league.id}"
+    visit league_path(league)
     expect(page).to have_content "Standings"
     expect(page).to have_content league.name
     expect(page).to have_content team.name

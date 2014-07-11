@@ -5,6 +5,8 @@ class CreateGames < ActiveRecord::Migration
       t.integer :away_team_lineup_id, null: false
       t.integer :home_score, default: 0
       t.integer :away_score, default: 0
+
+      t.timestamps
     end
   end
 end

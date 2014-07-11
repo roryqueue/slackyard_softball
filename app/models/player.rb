@@ -1,7 +1,7 @@
 class Player < ActiveRecord::Base
   belongs_to :team
   # attr_reader :first_name, :last_name, :batting_contact, :batting_power, :pitching_craftiness, :pitching_accuracy, :fielding, :speed
-
+  #
   # def initialize(first_name, last_name, batting_contact, batting_power,
   #               pitching_craftiness, pitching_accuracy, fielding, speed)
   #   @first_name = first_name
@@ -13,6 +13,91 @@ class Player < ActiveRecord::Base
   #   @fielding = fielding
   #   @speed = speed
   # end
+
+################# STAT HELPERS #################
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def homeruns
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'homerun').count
+  end
+
+  def triples
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'triple').count
+  end
+
+  def doubles
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'double').count
+  end
+
+  def singles
+    StatKeeper.where(batter_id: self.id).where(contact_result: 'single').count
+  end
+
+  def rbis
+    ScoreKeeper.where(batter_id: self.id).count
+  end
+
+  def runs_scored
+    ScoreKeeper.where(scorer_id: self.id).count
+  end
+
+  def batting_average
+    hits = self.homeruns + self.triples + self.doubles + self.singles
+    outs = OutKeeper.where(batter_id: self.id).count
+    unless outs.nil? || outs == 0
+      average = (hits.to_f / (hits.to_f + outs.to_f)).round(3)
+    end
+  end
+
+  def era
+    runs = ScoreKeeper.where(pitcher_id: self.id).count
+    outs = OutKeeper.where(pitcher_id: self.id).count
+    unless outs.nil? || outs == 0
+      era = ((runs.to_f / outs.to_f) * 27.0).round(2)
+    end
+  end
+
+  def strikeouts_thrown
+    OutKeeper.where(pitcher_id: self.id).where(detail: 'strikeout').count
+  end
+
+  def wins
+    home_games = Game.where(home_team_lineup_id: Lineup.select(:id).where(pitcher_id: self.id))
+    home_wins = 0
+    home_games.each do |game|
+      if game.home_score > game.away_score
+        home_wins += 1
+      end
+    end
+    away_games = Game.where(away_team_lineup_id: Lineup.select(:id).where(pitcher_id: self.id))
+    away_wins = 0
+    away_games.each do |game|
+      if game.away_score > game.home_score
+        away_wins += 1
+      end
+    end
+    wins = home_wins + away_wins
+  end
+
+  def losses
+    home_games = Game.where(home_team_lineup_id: Lineup.select(:id).where(pitcher_id: self.id))
+    home_losses = 0
+    home_games.each do |game|
+      if game.home_score < game.away_score
+        home_losses += 1
+      end
+    end
+    away_games = Game.where(away_team_lineup_id: Lineup.select(:id).where(pitcher_id: self.id))
+    away_losses = 0
+    away_games.each do |game|
+      if game.away_score < game.home_score
+        away_losses += 1
+      end
+    end
+    losses = home_losses + away_losses
+  end
 
 ################# PITCHER ######################
 
@@ -95,7 +180,7 @@ class Player < ActiveRecord::Base
 
   def extra_bases?
     #hits are: 67.6% singles, 19.5% doubles, 1.9% triples, 11.0% homeruns
-    roll = rand(280 + batting_power + speed)
+    roll = rand(130 + batting_power + speed)
     if roll < (batting_power / 2)
       hit = :homerun
     elsif roll < ((batting_power / 2) + (speed / 8))
