@@ -99,6 +99,14 @@ class Player < ActiveRecord::Base
     losses = home_losses + away_losses
   end
 
+  def errors
+    StatKeeper.where(fielder_id: self.id).where(contact_result: ['one_base_error', 'two_base_error']).count
+  end
+
+  def field_percentage
+    self.errors.to_f / StatKeeper.where(fielder_id: self.id).count.to_f
+  end
+
 ################# PITCHER ######################
 
   def pitch_placement
