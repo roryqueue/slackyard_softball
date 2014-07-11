@@ -13,13 +13,13 @@
 <ol>
   <% @games.each do |game| %>
     <li>
-      <h2><%= link_to game.home_team_lineup.team.league.name, game_path(game) %></h2>
+      <h2><%= link_to game.home_team_lineup.team.league.name, league_game_path(game.home_team_lineup.team.league, game) %></h2>
       <ul>
         <li><%= link_to game.home_team_lineup.team.name, team_path(game.home_team_lineup.team.id) %></li>
         <li><%= game.home_score %></li>
         <li><%= link_to game.away_team_lineup.team.name, team_path(game.away_team_lineup.team.id) %></li>
         <li><%= game.away_score %></li>
-        <li><%= link_to "Box Score", game_path(game.id) %></li>
+        <li><%= link_to "Box Score", league_game_path(game.home_team_lineup.team.league, game) %></li>
       </ul>
     </li>
   <% end %>

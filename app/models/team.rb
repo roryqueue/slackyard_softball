@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  validates_presence_of :name, :league_id
+  validates_presence_of :name, :league_id, :user_id
 
   has_many :players
   has_many :lineups
@@ -8,6 +8,7 @@ class Team < ActiveRecord::Base
   has_many :pitches
   has_many :runs
   belongs_to :league
+  belongs_to :user
 
   def games
     home_games = Game.where(home_team_lineup_id: Lineup.select(:id).where(team_id: self.id))
