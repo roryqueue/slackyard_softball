@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   devise_for :installs
 
   resources :leagues do
-    resources :teams, only: [:index, :new, :create]
+    resources :teams, only: [:new, :create]
     resources :games, only: [:index, :show]
   end
 
   resources :teams, only: [:show, :edit, :update, :destroy] do
-    resources :players, only: [:index, :show]
+    resources :players, only: :show
   end
 
 end

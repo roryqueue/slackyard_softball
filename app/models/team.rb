@@ -118,5 +118,13 @@ class Team < ActiveRecord::Base
   def strikeout_leaders
     self.players.sort_by { |player| player.strikeouts_thrown }.reverse!
   end
+
+  def errors
+    StatKeeper.where(fielder_id: Player.where(team_id: self.id)).where(contact_result: ['one_base_error', 'two_base_error']).count
+  end
+
+  def field_percentage
+    self.errors.to_f / StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count.to_f
+  end
 end
 

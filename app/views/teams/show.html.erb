@@ -1,0 +1,67 @@
+<h1><%= @team.name %></h1>
+<% if current_user.try(:id) == @team.user_id %>
+  <%= link_to 'Edit', edit_team_path(@team) %>
+<% end %>
+
+<h2><%= "#{team.wins} - #{team.losses}" %>
+
+<p><%= link_to "Roster", team_players_path(@team, @team.players) %></p>
+
+<h3>Batting:</h3>
+<table>
+  <tr>
+    <td>Runs:</td>
+    <td><%= team.runs_scored %></td>
+  </tr>
+  <tr>
+    <td>Batting Average:</td>
+    <td><%= team.batting_average %></td>
+  </tr>
+  <tr>
+    <td>Home Runs:</td>
+    <td><%= team.homeruns %></td>
+  </tr>
+  <tr>
+    <td>Triples:</td>
+    <td><%= team.triples %></td>
+  </tr>
+  <tr>
+    <td>Doubles:</td>
+    <td><%= team.doubles %></td>
+  </tr>
+  <tr>
+    <td>Singles:</td>
+    <td><%= team.singles %></td>
+  </tr>
+</table>
+
+<h3>Pitching:</h3>
+<table>
+  <tr>
+    <td>ERA:</td>
+    <td><%= team.era %></td>
+  </tr>
+  <tr>
+    <td>Strikeouts:</td>
+    <td><%= team.strikeouts %></td>
+  </tr>
+</table>
+
+<h3>Fielding:</h3>
+<table>
+  <tr>
+    <td>Errors:</td>
+    <td><%= team.errors %></td>
+  </tr>
+  <tr>
+    <td>Fielding %:</td>
+    <td><%= team.field_percentage %></td>
+  </tr>
+</table>
+
+<h2><%= "Roster:" %></h2>
+<ul>
+  <% @team.players.each do |player| %>
+  <li><%= link_to player.name, team_player_path(@team, player) %></li>
+  <% end %>
+</ul>

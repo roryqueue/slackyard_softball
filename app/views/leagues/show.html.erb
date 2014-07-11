@@ -1,7 +1,10 @@
 <h1><%= @league.name %></h1>
 <% if current_user.try(:id) == @league.commissioner_id %>
-  <%= link_to 'Edit', edit_question_path(@question) %>
+  <%= link_to 'Edit', edit_league_path(@league) %>
 <% end %>
+
+<p><%= link_to "Create a new team in #{@league.name}!", new_league_team_path %></p>
+
 <h2>Standings<h2>
 <table>
   <thead>
@@ -11,7 +14,7 @@
   </thead>
   <% @standings.each do |team| %>
   <tr>
-    <td><%= team.name %></td>
+    <td><%= link_to team.name, team_path(team) %></td>
     <td><%= team.wins %></td>
     <td><%= team.losses %></td>
   </tr>

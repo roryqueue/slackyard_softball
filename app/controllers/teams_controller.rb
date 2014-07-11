@@ -1,9 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-
-  def index
-    @teams = Team.where(league_id: params(:league_id))
-  end
+  before_action :authenticate_user!, except: [:show]
 
   def show
     @team = Team.find(params[:id])
