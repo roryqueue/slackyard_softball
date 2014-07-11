@@ -24,8 +24,8 @@
 <h3>Hitting<h3>
   <% @league.homerun_leaders.first(5).each do |player| %>
   <ol>
-    <li><h4><%= player.name %></h4></li>
-    <li><%= player.team.name %></li>
+    <li><h4><%= link_to player.name, team_player_path(player.team, player) %></h4></li>
+    <li><%= link_to player.team.name, team_path(player.team) %></li>
     <li><%= "#{player.batting_average} AVG" %></li>
     <li><%= "#{player.homeruns} HR" %></li>
   </ol>
@@ -33,8 +33,8 @@
 <h3>Pitching<h3>
   <% @league.pitching_win_leaders.first(5).each do |player| %>
   <ol>
-    <li><h4><%= player.name %></h4></li>
-    <li><%= player.team.name %></li>
+    <li><h4><%= link_to player.name, team_player_path(player.team, player) %></h4></li>
+    <li><%= link_to player.team.name, team_path(player.team) %></li>
     <li><%= "#{player.era} ERA" %></li>
     <li><%= "#{player.wins} - #{player.losses}" %></li>
   </ol>

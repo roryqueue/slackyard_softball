@@ -49,9 +49,12 @@ class AtBat
   def result_test(pitch)
     result = nil
     detail = nil
-    if pitch.fair_foul_check == :foulout || strikeout?
+    if strikeout?
       result = :out
-      detail = strikeout? || :foulout
+      detail = :strikeout
+    elsif pitch.fair_foul_check == :foulout
+      result = :out
+      detail = :foulout
     elsif pitch.hit_or_fielded == :hit
       result = pitch.hit_type
     elsif walk?

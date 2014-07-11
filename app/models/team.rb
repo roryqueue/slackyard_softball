@@ -88,7 +88,7 @@ class Team < ActiveRecord::Base
     runs = ScoreKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     outs = OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0
-      era = runs.to_f / (outs * 27).to_f.round(2)
+      era = ((runs.to_f / outs.to_f) * 27.0).round(2)
     end
   end
 
@@ -125,7 +125,9 @@ class Team < ActiveRecord::Base
   end
 
   def field_percentage
-    self.errors.to_f / StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count.to_f
+    if StatKeeper.where(fielder_id: Player.where(team_id: self.id))
+      (1 - (self.err_count.to_f) / StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count.to_f).round(3)
+    end
   end
 end
 
