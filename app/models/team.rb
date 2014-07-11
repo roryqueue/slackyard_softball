@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  validates_presence_of :name, :league_id, :user_id
+  validates_presence_of :name
 
   has_many :players
   has_many :lineups
@@ -120,7 +120,7 @@ class Team < ActiveRecord::Base
     self.players.sort_by { |player| player.strikeouts_thrown }.reverse!
   end
 
-  def errors
+  def err_count
     StatKeeper.where(fielder_id: Player.where(team_id: self.id)).where(contact_result: ['one_base_error', 'two_base_error']).count
   end
 

@@ -99,7 +99,7 @@ class Player < ActiveRecord::Base
     losses = home_losses + away_losses
   end
 
-  def errors
+  def err_count
     StatKeeper.where(fielder_id: self.id).where(contact_result: ['one_base_error', 'two_base_error']).count
   end
 

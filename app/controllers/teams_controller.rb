@@ -1,11 +1,12 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: :show
 
   def show
     @team = Team.find(params[:id])
   end
 
   def new
+    @league = League.find(params[:league_id])
     @team = Team.new
   end
 
@@ -16,7 +17,7 @@ class TeamsController < ApplicationController
 
     if @team.save
       flash[:notice] = "Your team '#{team.name}' has been created!"
-      redirect_to teams_path
+      redirect_to league_path(@team.league)
     else
       flash.now[:notice] = 'Your team could not be created!'
       render :new
@@ -33,7 +34,7 @@ class TeamsController < ApplicationController
     if owner?
       @team.update(team_params)
       flash[:notice] = "#{@team.name} has been successfully updated!"
-      redirect_to team_path(@team)
+      redirect_to league_team_path(@team.league, @team)
     end
   end
 
@@ -44,7 +45,7 @@ class TeamsController < ApplicationController
       @team.destroy
 
       flash[:notice] = "#{@team.name} has been permanently shut down."
-      redirect_to teams_path
+      redirect_to league_path(@team.league)
     end
   end
 
