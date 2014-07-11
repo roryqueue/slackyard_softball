@@ -3,7 +3,7 @@
   <%= link_to 'Edit', edit_league_path(@league) %>
 <% end %>
 
-<p><%= link_to "Create a new team in #{@league.name}!", new_league_team_path %></p>
+<p><%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %></p>
 
 <h2>Standings<h2>
 <table>
