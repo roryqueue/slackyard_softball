@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Team do
-  it 'team has a name' do
+  it 'has a name' do
     team = FactoryGirl.build(:team, name: 'West Roxbury Phillies')
 
     expect(team.name).to eq 'West Roxbury Phillies'
@@ -30,9 +30,17 @@ describe Team do
     expect(team.field_percentage).to eq nil
   end
 
-  it 'team has a league' do
+  it 'has a league and an owner' do
     team = FactoryGirl.build(:team)
 
     expect(team.league).to be_instance_of(League)
+    expect(team.user).to be_instance_of(User)
+  end
+
+  it 'has players and lineups, both initialize at zero' do
+    team = FactoryGirl.build(:team)
+
+    expect(team.players.count).to eq 0
+    expect(team.lineups.count).to eq 0
   end
 end

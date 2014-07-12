@@ -30,13 +30,13 @@ describe Player do
     expect(player.field_percentage).to eq nil
   end
 
-  it 'player has a team' do
+  it 'has a team' do
     player = FactoryGirl.build(:player)
 
     expect(player.team).to be_instance_of(Team)
   end
 
-  it 'player has a league' do
+  it 'has a league' do
     player = FactoryGirl.build(:player)
 
     expect(player.team.league).to be_instance_of(League)
