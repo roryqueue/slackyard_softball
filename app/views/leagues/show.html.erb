@@ -2,7 +2,7 @@
 <% if current_user.try(:id) == @league.commissioner_id %>
   <%= link_to 'Edit', edit_league_path(@league) %>
 <% end %>
-
+<h3><%= "Commissioner: #{@league.commissioner.user_name}" %></h3>
 <p><%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %></p>
 
 <h2>Standings<h2>

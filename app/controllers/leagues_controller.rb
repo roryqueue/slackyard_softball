@@ -20,10 +20,10 @@ class LeaguesController < ApplicationController
     @league.commissioner_id = current_user.id if current_user
 
     if @league.save
-      flash[:notice] = "Your league '#{league.name}' has been created!"
-      redirect_to leagues_path
+      flash[:notice] = "Your league '#{@league.name}' has been created!"
+      redirect_to league_path(@league)
     else
-      flash.now[:notice] = 'Your league could not be created!'
+      flash.now[:notice] = "Your league could not be created!"
       render :new
     end
   end

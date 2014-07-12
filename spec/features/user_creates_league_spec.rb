@@ -19,14 +19,14 @@ feature "User creates a new league" do
 
     visit "/"
 
-    click_on "Create a new league"
+    click_on "Create your own league!"
 
-    fill_in " League name", with: team.name
+    fill_in "Name", with: league.name
 
-    click_on "Create league"
+    click_on "Create League"
 
     expect(page).to have_content league.name
-    expect(page).to have_content "Commissioner: #{user.name}"
+    expect(page).to have_content "Commissioner: #{user.user_name}"
   end
 
   it "tries to create a league with incomplete info and gets error message" do
@@ -38,9 +38,9 @@ feature "User creates a new league" do
 
     visit "/"
 
-    click_on "Create a new league"
+    click_on "Create your own league!"
 
-    click_on "Create league"
+    click_on "Create League"
 
     expect(page).not_to have_content league.name
     expect(page).to have_content "can't be blank"
