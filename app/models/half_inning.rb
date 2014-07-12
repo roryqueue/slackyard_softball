@@ -54,6 +54,10 @@ class HalfInning
       homerun(at_bat.batter)
     elsif at_bat.result == :walk
       walk(at_bat.batter)
+    elsif at_bat.result == :two_base_error
+      two_base_error(at_bat.batter)
+    elsif at_bat.result == :one_base_error
+      one_base_error(at_bat.batter)
     end
     @runs = base_path.run_count
   end
@@ -157,6 +161,14 @@ class HalfInning
     ScoreKeeper.create(pitcher_id: pitcher.id, batter_id: batted_in_by.id,
       scorer_id: scored_by.id, batting_team_id: batting_team.id,
       fielding_team_id: fielding_team.id, game_id: game.id, inning_number: inning_number)
+  end
+
+  def one_base_error(player)
+    single(player)
+  end
+
+  def two_base_error(player)
+    double(player)
   end
 
 end

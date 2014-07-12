@@ -104,7 +104,9 @@ class Player < ActiveRecord::Base
   end
 
   def field_percentage
-    self.errors.to_f / StatKeeper.where(fielder_id: self.id).count.to_f
+    if StatKeeper.where(fielder_id: self.id).count > 0
+      ( 1 - (self.err_count.to_f) / StatKeeper.where(fielder_id: self.id).count.to_f).round(3)
+    end
   end
 
 ################# PITCHER ######################
@@ -146,14 +148,14 @@ class Player < ActiveRecord::Base
   def contact?(placement, pitcher_velocity)
     #MLB batters make contact with swung-at strikes 88% of the time
     if placement == :strike
-      if rand < log_five((batting_contact + 2 / 3 * (100 - batting_contact)), pitcher_velocity)
+      if rand < log_five((batting_contact + 3 / 20 * (100 - batting_contact)), ((pitcher_velocity) * (19 / 20)))
         contact = true
       else
         contact = false
       end
     elsif placement == :ball
     #MLB batters make contact with strikes 68% of the time
-      if rand < log_five((batting_contact + 1 / 3 * (100 - batting_contact)), pitcher_velocity)
+      if rand < log_five((batting_contact + 1 / 20 * (100 - batting_contact)), ((pitcher_velocity) * (19 / 20)))
       contact = true
       else
       contact = false
@@ -165,7 +167,7 @@ class Player < ActiveRecord::Base
 
   def fair_ball?(pitcher_velocity)
     #batters foul of 40.5% of balls they make contact with (does not count foulouts)
-    if rand < log_five((batting_contact + 1 / 6 * (100 - batting_contact)), pitcher_velocity)
+    if rand < log_five((batting_contact + 1 / 10 * (100 - batting_contact)), ((pitcher_velocity) * (19 / 20)))
       ball = :fair
     else
       if rand(10) > 1
@@ -178,7 +180,7 @@ class Player < ActiveRecord::Base
   end
 
   def hit?
-    if rand(100 + batting_contact) > batting_contact
+    if rand(200 + batting_contact) > batting_contact
       ball = :fielded
     else
       ball = :hit
@@ -188,7 +190,7 @@ class Player < ActiveRecord::Base
 
   def extra_bases?
     #hits are: 67.6% singles, 19.5% doubles, 1.9% triples, 11.0% homeruns
-    roll = rand(130 + batting_power + speed)
+    roll = rand(175 + batting_power + speed)
     if roll < (batting_power / 2)
       hit = :homerun
     elsif roll < ((batting_power / 2) + (speed / 8))
@@ -205,8 +207,8 @@ class Player < ActiveRecord::Base
   def field_ball
     fielded = nil
     if rand(500) > (400 + fielding)
-      fielded = false
-    else fielded = true
+      fielded = :no
+    else fielded = :yes
     end
     fielded
   end

@@ -42,6 +42,7 @@ class Pitch
       contact_result = hit_type
     elsif out_or_error
       contact_result = out_or_error
+      puts out_or_error
     elsif hit_or_fielded
       contact_result = hit_or_fielded
     elsif fair_or_foul
@@ -85,7 +86,7 @@ class Pitch
     fielding_result = nil
     if hit_or_fielded == :fielded
       fielder = fielding_team.positions[fielder_position]
-      if fielder.field_ball
+      if fielder.field_ball == :yes
         fielding_result = :out
       else
         if fielder_position >=7
@@ -144,11 +145,7 @@ class Pitch
     if hit_or_fielded == :hit
       bases_do = batter.extra_bases?
     elsif hit_or_fielded == :fielded
-      if out_or_error == :two_base_error
-        bases_do = :double
-      elsif out_or_error == :one_base_error
-        bases_do = :single
-      end
+      bases_do = out_or_error
     else
       bases_do = nil
     end

@@ -10,7 +10,7 @@ feature 'user is able to search for league' do
 
   visit leagues_path
 
-  fill_in "search", with: league.name
+  fill_in "search", with: correct_league.name
   click_on "Search"
 
   expect(page).to have_content(correct_league.name)
