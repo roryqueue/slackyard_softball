@@ -13,13 +13,13 @@
     <th>Losses</th>
   </thead>
   <% @standings.each do |team| %>
-  <tr>
-    <td><%= link_to team.name, team_path(team) %></td>
-    <td><%= team.wins %></td>
-    <td><%= team.losses %></td>
-  </tr>
+    <tr>
+      <td><%= link_to team.name, team_path(team) %></td>
+      <td><%= team.wins %></td>
+      <td><%= team.losses %></td>
+    </tr>
+  <% end %>
 </table>
-<% end %>
 <h2>League Leaders</h2>
 <h3>Hitting<h3>
   <% @league.homerun_leaders.first(5).each do |player| %>
