@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
+  mount_uploader :picture, PlayerPicUploader
   belongs_to :team
   # attr_reader :first_name, :last_name, :batting_contact, :batting_power, :pitching_craftiness, :pitching_accuracy, :fielding, :speed
   #
