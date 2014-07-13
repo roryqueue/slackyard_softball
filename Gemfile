@@ -12,6 +12,8 @@ group :development, :test do
   gem "database_cleaner"
 end
 
+gem 'fog'
+gem 'carrierwave'
 gem 'simple_form'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
