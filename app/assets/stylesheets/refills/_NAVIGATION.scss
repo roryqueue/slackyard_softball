@@ -28,7 +28,11 @@ header.navigation {
   }
 
   .logo {
+<<<<<<< HEAD
     float: left;
+=======
+    float: left;
+>>>>>>> eb52220
     max-height: $navigation-height;
     padding-left: $navigation-padding;
     padding-right: 2em;
@@ -68,7 +72,11 @@ header.navigation {
     }
   }
 
+<<<<<<< HEAD
   ul#navigation-menu {
+=======
+  ul#navigation-menu {
+>>>>>>> eb52220
     clear: both;
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     display: none;
@@ -199,9 +207,15 @@ header.navigation {
     @include transition (all 0.2s ease-in-out);
     display: inline;
     background: $navigation-nav-button-background;
+<<<<<<< HEAD
     border-radius: $base-border-radius;
     color: white;
     font-size: .8em;
+=======
+    border-radius: $base-border-radius;
+    color: white;
+    font-size: .8em;
+>>>>>>> eb52220
     font-weight: 800;
     padding: .4em 1em;
     text-transform: uppercase;
@@ -216,7 +230,11 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10);
 
+<<<<<<< HEAD
     padding: 13px 5px;
+=======
+    padding: 13px 5px;
+>>>>>>> eb52220
     float: left;
     .search-and-submit {
       position: relative;
@@ -247,7 +265,11 @@ header.navigation {
 
     @include media($horizontal-bar-mode) {
       width: 16em;
+<<<<<<< HEAD
       position: relative;
+=======
+      position: relative;
+>>>>>>> eb52220
       display: inline-block;
 
       input {
