@@ -1,19 +1,6 @@
 class Player < ActiveRecord::Base
   mount_uploader :picture, PlayerPicUploader
   belongs_to :team
-  # attr_reader :first_name, :last_name, :batting_contact, :batting_power, :pitching_craftiness, :pitching_accuracy, :fielding, :speed
-  #
-  # def initialize(first_name, last_name, batting_contact, batting_power,
-  #               pitching_craftiness, pitching_accuracy, fielding, speed)
-  #   @first_name = first_name
-  #   @last_name = last_name
-  #   @batting_contact = batting_contact
-  #   @batting_power = batting_power
-  #   @pitching_craftiness = pitching_craftiness
-  #   @pitching_accuracy = pitching_accuracy
-  #   @fielding = fielding
-  #   @speed = speed
-  # end
 
 ################# STAT HELPERS #################
   def name
@@ -55,6 +42,36 @@ class Player < ActiveRecord::Base
 
   def innings_pitched
     OutKeeper.where(pitcher_id: self.id).count.to_f / 3
+  end
+
+  def homeruns_in(game)
+    StatKeeper.where(game_id: game.id).where(batter_id: self.id).where(contact_result: 'homerun').count
+  end
+
+  def triples_in(game)
+    StatKeeper.where(game_id: game.id).where(batter_id: self.id).where(contact_result: 'triple').count
+  end
+
+  def doubles_in(game)
+    StatKeeper.where(game_id: game.id).where(batter_id: self.id).where(contact_result: 'double').count
+  end
+
+  def singles_in(game)
+    StatKeeper.where(game_id: game.id).where(batter_id: self.id).where(contact_result: 'single').count
+  end
+
+  def rbis_in(game)
+    ScoreKeeper.where(game_id: game.id).where(batter_id: self.id).count
+  end
+
+  def runs_scored_in(game)
+    ScoreKeeper.where(game_id: game.id).where(scorer_id: self.id).count
+  end
+
+  def hits_over_at_bats_in(game)
+    outs = OutKeeper.where(game_id: game.id).where(batter_id: self.id).count
+    hits = singles_in(game) + doubles_in(game) + triples_in(game) + homeruns_in(game)
+    ratio = hits.to_s + " / " + (hits + outs).to_s
   end
 
   def era
