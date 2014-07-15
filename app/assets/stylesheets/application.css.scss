@@ -5,7 +5,6 @@
 @import "refills/navigation";
 @import "refills/footer-2";
 
-
 .main-content {
   @include outer-container;
 }
@@ -50,5 +49,5 @@
   font-style: italic;
   font-weight: 900;
   font-size: 16pt;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 2px 2px $dark-gray;
 }
