@@ -280,7 +280,6 @@ DEPENDENCIES
   rails_12factor
   refills
   rspec-rails (~> 3.0.0)
-  sass
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form

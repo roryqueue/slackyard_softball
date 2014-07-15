@@ -22,7 +22,6 @@ gem 'rails', '4.1.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-gem 'sass'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
