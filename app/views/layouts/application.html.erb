@@ -5,22 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="type-system-geometric">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <nav class="nav-bar">
-    <ul>
-      <% if user_signed_in? %>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "Edit account", edit_user_registration_path %></li>
-      <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
-      <% end %>
-    </ul>
-  </nav>
-<%= yield %>
+  <%= render "refills/navigation" %>
+  <div class="main-content">
+    <%= yield %>
+  </div>
+  <%= render "refills/footer" %>
 
 </body>
 </html>

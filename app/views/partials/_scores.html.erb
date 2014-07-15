@@ -1,0 +1,17 @@
+<h2>Recent Games:</h2><hr>
+<% games.each do |game| %>
+  <table>
+    <thead>
+      <th><%= link_to game.created_at.strftime('%m/%d/%Y'), league_game_path(game.home_team_lineup.team.league, game) %></th>
+      <th><%= link_to "Scorecard", league_game_path(game.home_team_lineup.team.league, game) %></th>
+    </thead>
+    <tr>
+      <td><%= link_to game.home_team_lineup.team.name, team_path(game.home_team_lineup.team.id) %></td>
+      <td><%= game.home_score %></td>
+    </tr>
+    <tr>
+      <td><%= link_to game.away_team_lineup.team.name, team_path(game.away_team_lineup.team.id) %></td>
+      <td><%= game.away_score %></td>
+    </tr>
+  </table><br>
+<% end %>

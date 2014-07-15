@@ -82,6 +82,7 @@ class Team < ActiveRecord::Base
     unless outs.nil? || outs == 0
       average = (hits.to_f / (hits + outs).to_f).round(3)
     end
+    reformatted_average = ('%.3f' % average).sub(/^[0:]*/,"")
   end
 
   def era
@@ -89,6 +90,7 @@ class Team < ActiveRecord::Base
     outs = OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0
       era = ((runs.to_f / outs.to_f) * 27.0).round(2)
+      reformatted_era = '%.2f' % era
     end
   end
 
@@ -126,7 +128,8 @@ class Team < ActiveRecord::Base
 
   def field_percentage
     if StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count > 0
-      (1 - (self.err_count.to_f) / StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count.to_f).round(3)
+      field_perc = (1 - (self.err_count.to_f) / StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count.to_f).round(3)
+      reformatted_field_perc = '%.3f' % field_perc
     end
   end
 end

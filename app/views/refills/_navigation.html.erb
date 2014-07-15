@@ -1,0 +1,71 @@
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a href="/" class="logo">
+      <img src="/softball.png" alt="logo">
+    </a>
+    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li class="brand">Slackyard Softball</li>
+        <% if user_signed_in? %>
+          <li class="nav-link more"><a href="javascript:void(0)">My Leagues</a>
+            <ul class="submenu">
+              <% current_user.leagues.each do |league| %>
+              <li><%= link_to league.name, league_path(league) %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="nav-link"><%= link_to "Edit account", edit_user_registration_path %></li>
+          <li class="nav-link"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="nav-link more"><a href="javascript:void(0)">Active Leagues</a>
+            <ul class="submenu">
+              <% League.all.each do |league| %>
+                <li><%= link_to league.name, league_path(league) %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="nav-link"><%= link_to "Sign up", new_user_registration_path %></li>
+          <li class="nav-link"><%= link_to "Sign in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <div class="search-and-submit">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<br>
+
+<script>
+  $(function() {
+    var menu = $('#navigation-menu');
+    var menuToggle = $('#js-mobile-menu');
+    var signUp = $('.sign-up');
+
+    $(menuToggle).on('click', function(e) {
+      e.preventDefault();
+      menu.slideToggle(function(){
+        if(menu.is(':hidden')) {
+          menu.removeAttr('style');
+        }
+      });
+    });
+
+    // underline under the active nav item
+    $(".nav .nav-link").click(function() {
+      $(".nav .nav-link").each(function() {
+        $(this).removeClass("active-nav-item");
+      });
+      $(this).addClass("active-nav-item");
+      $(".nav .more").removeClass("active-nav-item");
+    });
+  });
+</script>

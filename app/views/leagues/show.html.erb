@@ -1,41 +1,55 @@
-<h1><%= @league.name %></h1>
-<% if current_user.try(:id) == @league.commissioner_id %>
-  <%= link_to 'Edit', edit_league_path(@league) %>
-<% end %>
-<h3><%= "Commissioner: #{@league.commissioner.user_name}" %></h3>
-<p><%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %></p>
+<ol class="page-header">
+  <li><%= @league.name %> </li>
+  <% if current_user.try(:id) == @league.commissioner_id %>
+    <li><%= link_to 'Edit', edit_league_path(@league) %></li>
+  <% end %>
+</ol>
 
-<h2>Standings<h2>
-<table>
-  <thead>
-    <th>Team</th>
-    <th>Wins</th>
-    <th>Losses</th>
-  </thead>
-  <% @standings.each do |team| %>
-    <tr>
-      <td><%= link_to team.name, team_path(team) %></td>
-      <td><%= team.wins %></td>
-      <td><%= team.losses %></td>
-    </tr>
-  <% end %>
-</table>
-<h2>League Leaders</h2>
-<h3>Hitting<h3>
-  <% @league.homerun_leaders.first(5).each do |player| %>
-  <ol>
-    <li><h4><%= link_to player.name, team_player_path(player.team, player) %></h4></li>
-    <li><%= link_to player.team.name, team_path(player.team) %></li>
-    <li><%= "#{player.batting_average} AVG" %></li>
-    <li><%= "#{player.homeruns} HR" %></li>
-  </ol>
-  <% end %>
-<h3>Pitching<h3>
-  <% @league.pitching_win_leaders.first(5).each do |player| %>
-  <ol>
-    <li><h4><%= link_to player.name, team_player_path(player.team, player) %></h4></li>
-    <li><%= link_to player.team.name, team_path(player.team) %></li>
-    <li><%= "#{player.era} ERA" %></li>
-    <li><%= "#{player.wins} - #{player.losses}" %></li>
-  </ol>
-  <% end %>
+<ol class="page-header-sub">
+  <li><%= "Commissioner: #{@league.commissioner.user_name}" %> </li>
+  <li><%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %></li>
+</ol>
+<hr>
+
+<div class="standing-table">
+  <h1>Standings</h1>
+  <table>
+    <thead>
+      <th>Team</th>
+      <th>Manager</th>
+      <th>Wins</th>
+      <th>Losses</th>
+    </thead>
+    <% @standings.each do |team| %>
+      <tr>
+        <td><%= link_to team.name, team_path(team) %></td>
+        <td><%= team.user.user_name %></td>
+        <td><%= team.wins %></td>
+        <td><%= team.losses %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+</div>
+
+<div class="league-stat-leaders">
+  <h1>League Leaders</h1><hr>
+  <h3>Batting:</h3><br>
+  <span class="cards">
+    <% @league.homerun_leaders.first(6).each do |player| %>
+      <%= render "refills/cards", person: player %>
+    <% end %>
+  </span>
+  <hr>
+<!-- </div>
+ --><!-- <div class="stat-leaders"> -->
+  <h3>Pitching:</h3><br>
+  <span class="cards">
+    <% @league.pitching_win_leaders.first(6).each do |player| %>
+      <%= render "refills/cards", person: player %>
+    <% end %>
+  </span>
+</div>
+<div class="games-table">
+  <%= render "partials/scores", games: @league.games.last(7) %>
+</div>
