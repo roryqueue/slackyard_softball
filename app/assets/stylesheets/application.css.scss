@@ -4,3 +4,50 @@
 @import "refills/cards";
 @import "refills/navigation";
 @import "refills/footer-2";
+
+.main-content {
+  @include outer-container;
+}
+
+.games-table {
+  @include span-columns(3);
+}
+
+.team-roster {
+  @include span-columns(9);
+}
+
+.team-stat-table {
+  @include span-columns(3);
+}
+
+.standings-table {
+  @include span-columns(12);
+}
+
+
+.league-stat-leaders {
+  @include span-columns(9);
+}
+
+.player-show-column {
+  @include span-columns(4);
+}
+
+.page-header > li {
+  display: inline;
+  font-size: 36pt;
+  font-weight: 700;
+}
+
+.page-header-sub > li {
+  display: inline;
+}
+
+.brand {
+  color: $red;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 16pt;
+  text-shadow: 2px 2px #000000;
+}

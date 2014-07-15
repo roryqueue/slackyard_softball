@@ -2,8 +2,6 @@ $font-stack:    Helvetica, sans-serif;
 $base-body-color: #333;
 $medium-screen: em(640);
 $large-screen: em(860);
-$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
-$large-screen-up: new-breakpoint(min-width $large-screen 8);
 
 
 
@@ -32,7 +30,7 @@ $large-screen-up: new-breakpoint(min-width $large-screen 8);
   position: relative;
 
   @include media($large-screen) {
-    @include span-columns(3);
+    @include span-columns(4);
     @include omega(3n);
   }
 

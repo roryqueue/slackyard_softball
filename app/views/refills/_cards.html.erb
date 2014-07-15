@@ -1,0 +1,52 @@
+<!-- <span class="cards"> -->
+  <% if person.class == Player %>
+    <div class="card">
+      <div class="card-image">
+        <img src="https://raw.github.com/Magnus-G/Random/master/mountains.png" alt="">
+      </div>
+      <div class="card-header">
+        <%= link_to person.name, team_player_path(person.team, person) %>
+      </div>
+<!--       <div class="card-copy">
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+  --> <div class="card-stats">
+        <% if person.innings_pitched > 9 %>
+          <ul>
+            <li><%= person.wins %><span>Wins</span></li>
+            <!-- <li><%= person.losses %><span>Losses</span></li> -->
+            <li><%= person.era %><span>ERA</span></li>
+            <li><%= person.strikeouts_thrown %><span>Strikeouts</span></li>
+          </ul>
+        <% else %>
+          <ul>
+            <li><%= person.batting_average %><span>Average</span></li>
+            <li><%= person.homeruns %><span>Homeruns</span></li>
+            <li><%= person.rbis %><span>RBIs</span></li>
+            <!-- <li><%= person.field_percentage %><span>Field %</span></li> -->
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <% elsif person.class == User %>
+    <div class="card">
+      <div class="ribbon-wrapper"><div class="ribbon">MANAGER</div></div>
+      <div class="card-image">
+        <img src="https://raw.github.com/Magnus-G/Random/master/mountains-4.png" alt="">
+      </div>
+      <div class="card-header">
+        <%= person.user_name %>
+      </div>
+<!--       <div class="card-copy">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+      </div> -->
+      <div class="card-stats">
+        <ul>
+          <li>98<span>Wins</span></li>
+          <li>298<span>Losses</span></li>
+          <li>923<span>Titles (all-time)</span></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<!-- </span> -->

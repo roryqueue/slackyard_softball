@@ -1,6 +1,6 @@
 header.navigation {
   $navigation-padding: 1em;
-  $navigation-background: $dark-gray;
+  $navigation-background: desaturate(darken($base-accent-color, 20), 30);
   $navigation-color: transparentize(white, 0.3);
   $navigation-color-hover: white;
   $navigation-height: 60px;
@@ -28,7 +28,7 @@ header.navigation {
   }
 
   .logo {
-    float: left;    
+    float: left;
     max-height: $navigation-height;
     padding-left: $navigation-padding;
     padding-right: 2em;
@@ -68,7 +68,7 @@ header.navigation {
     }
   }
 
-  ul#navigation-menu {    
+  ul#navigation-menu {
     clear: both;
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     display: none;
@@ -199,9 +199,9 @@ header.navigation {
     @include transition (all 0.2s ease-in-out);
     display: inline;
     background: $navigation-nav-button-background;
-    border-radius: $base-border-radius; 
+    border-radius: $base-border-radius;
     color: white;
-    font-size: .8em;  
+    font-size: .8em;
     font-weight: 800;
     padding: .4em 1em;
     text-transform: uppercase;
@@ -216,7 +216,7 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10);
 
-    padding: 13px 5px; 
+    padding: 13px 5px;
     float: left;
     .search-and-submit {
       position: relative;
@@ -247,7 +247,7 @@ header.navigation {
 
     @include media($horizontal-bar-mode) {
       width: 16em;
-      position: relative; 
+      position: relative;
       display: inline-block;
 
       input {

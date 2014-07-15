@@ -1,55 +1,60 @@
-<h1><%= @player.name %></h1>
-<p><%= link_to @player.team.name, team_path(@player.team) %></p>
-<p><%= link_to @player.team.league.name, league_path(@player.team.league) %></p>
-
-<h3>Batting:</h3>
-<table>
-  <tr>
-    <td>Runs:</td>
-    <td><%= @player.runs_scored %></td>
-  </tr>
-  <tr>
-    <td>Batting Average:</td>
-    <td><%= @player.batting_average %></td>
-  </tr>
-  <tr>
-    <td>Home Runs:</td>
-    <td><%= @player.homeruns %></td>
-  </tr>
-  <tr>
-    <td>Triples:</td>
-    <td><%= @player.triples %></td>
-  </tr>
-  <tr>
-    <td>Doubles:</td>
-    <td><%= @player.doubles %></td>
-  </tr>
-  <tr>
-    <td>Singles:</td>
-    <td><%= @player.singles %></td>
-  </tr>
-</table>
-
-<h3>Pitching:</h3>
-<table>
-  <tr>
-    <td>ERA:</td>
-    <td><%= @player.era %></td>
-  </tr>
-  <tr>
-    <td>Strikeouts:</td>
-    <td><%= @player.strikeouts_thrown %></td>
-  </tr>
-</table>
-
-<h3>Fielding:</h3>
-<table>
-  <tr>
-    <td>Errors:</td>
-    <td><%= @player.err_count %></td>
-  </tr>
-  <tr>
-    <td>Fielding %:</td>
-    <td><%= @player.field_percentage %></td>
-  </tr>
-</table>
+<ol class="page-header">
+  <li><%= @player.name %> </li>
+  <li>(<%= link_to @player.team.name, team_path(@player.team) %>, </li>
+  <li><%= link_to @player.team.league.name, league_path(@player.team.league) %>)</li>
+</ol><br>
+<div class="player-show-column">a</div>
+<div class="player-show-column">
+  <h3>Batting:</h3>
+  <table>
+    <tr>
+      <td>Runs:</td>
+      <td><%= @player.runs_scored %></td>
+    </tr>
+    <tr>
+      <td>Batting Average:</td>
+      <td><%= @player.batting_average %></td>
+    </tr>
+    <tr>
+      <td>Home Runs:</td>
+      <td><%= @player.homeruns %></td>
+    </tr>
+    <tr>
+      <td>Triples:</td>
+      <td><%= @player.triples %></td>
+    </tr>
+    <tr>
+      <td>Doubles:</td>
+      <td><%= @player.doubles %></td>
+    </tr>
+    <tr>
+      <td>Singles:</td>
+      <td><%= @player.singles %></td>
+    </tr>
+  </table>
+</div>
+<div class="player-show-column">
+ <h3>Fielding:</h3>
+  <table>
+    <tr>
+      <td>Errors:</td>
+      <td><%= @player.err_count %></td>
+    </tr>
+    <tr>
+      <td>Fielding %:</td>
+      <td><%= @player.field_percentage %></td>
+    </tr>
+  </table>
+  <br>
+  <h3>Pitching:</h3>
+  <table>
+    <tr>
+      <td>ERA:</td>
+      <td><%= @player.era %></td>
+    </tr>
+    <tr>
+      <td>Strikeouts:</td>
+      <td><%= @player.strikeouts_thrown %></td>
+    </tr>
+  </table>
+</div>

@@ -1,8 +1,20 @@
-<h1>Results</h1>
-<h2><%= "#{@game.away_team_lineup.team}(#{@away_pitcher.last_name}) #{@game.away_score}" %></h2>
-<h2><%= "#{@game.home_team_lineup.team}(#{@home_pitcher.last_name}) #{@game.home_score}" %></h2>
-<ol>
-  <% @runs.each do |run| %>
-    <li><%= "#{run.scorer} batted in by #{run.batter} off #{run.pitcher}" %></li>
-  <% end %>
+<ol class="page-header">
+  <li><%= link_to @game.away_team_lineup.team.name, team_path(@game.away_team_lineup.team) %></li>
+  <li> (<%= link_to @away_pitcher.last_name, team_player_path(@game.away_team_lineup.team, @away_pitcher) %>) </li>
+  <li>- <%= @game.away_score %> </li>
 </ol>
+
+<ol class="page-header">
+  <li>@ <%= link_to @game.home_team_lineup.team.name, team_path(@game.home_team_lineup.team) %></li>
+  <li> (<%= link_to @home_pitcher.last_name, team_player_path(@game.home_team_lineup.team, @home_pitcher) %>) </li>
+  <li>- <%= @game.home_score %></li>
+</ol>
+<br>
+<h1>Scoring:</h1>
+<table>
+  <% @runs.each do |run| %>
+    <tr>
+      <td><h3><%= link_to run.scorer.last_name, team_player_path(run.scorer.team, run.scorer) %> batted in by <%= link_to run.batter.last_name, team_player_path(run.batter.team, run.batter) %> off <%= link_to run.pitcher.last_name, team_player_path(run.pitcher.team, run.pitcher) %></h3></td>
+    </tr>
+  <% end %>
+</table><br>

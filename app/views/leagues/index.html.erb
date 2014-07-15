@@ -1,26 +1,9 @@
-<h1>Leagues Around Softball Sim</h1>
-
-<h2>Active Leagues</h2>
-<ol>
-  <% @leagues.each do |league| %>
-    <li><%= link_to league.name, league_path(league) %></li>
-  <% end %>
+<ol class="page-header">
+  <li>Leagues Around Softball Sim</li>
 </ol>
 
-<p><%= link_to "Create your own league!", new_league_path %></p>
+<p><%= link_to "Create your own league!", new_league_path %></p><hr>
 
-<h2>Recent Games</h2>
-<ol>
-  <% @games.each do |game| %>
-    <li>
-      <h2><%= link_to game.home_team_lineup.team.league.name, league_game_path(game.home_team_lineup.team.league, game) %></h2>
-      <ul>
-        <li><%= link_to game.home_team_lineup.team.name, team_path(game.home_team_lineup.team.id) %></li>
-        <li><%= game.home_score %></li>
-        <li><%= link_to game.away_team_lineup.team.name, team_path(game.away_team_lineup.team.id) %></li>
-        <li><%= game.away_score %></li>
-        <li><%= link_to "Box Score", league_game_path(game.home_team_lineup.team.league, game) %></li>
-      </ul>
-    </li>
-  <% end %>
-</ol>
+<div class="games-table">
+  <%= render "partials/scores", games: @games %>
+</div>
