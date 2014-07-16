@@ -11,7 +11,7 @@
 </ol>
 <hr>
 
-<div class="standing-table">
+<div class="standing-table twelve">
   <h1>Standings</h1>
   <table>
     <thead>
@@ -32,7 +32,7 @@
   <br>
 </div>
 
-<div class="league-stat-leaders">
+<div class="league-stat-leaders nine">
   <h1>League Leaders</h1><hr>
   <h3>Home Runs:</h3><br>
   <span class="cards">
@@ -57,6 +57,6 @@
     <% end %>
   </span>
 </div>
-<div class="games-table">
+<div class="three">
   <%= render "partials/scores", games: @league.games.last(7) %>
 </div>

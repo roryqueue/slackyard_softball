@@ -2,9 +2,11 @@
   <li><%= @player.name %> </li>
   <li>(<%= link_to @player.team.name, team_path(@player.team) %>, </li>
   <li><%= link_to @player.team.league.name, league_path(@player.team.league) %>)</li>
-</ol><br>
-<div class="player-show-column">a</div>
-<div class="player-show-column">
+</ol>
+<p><%= "Bat Contact: #{@player.batting_contact} | Bat Power: #{@player.batting_power} | Throw Accuracy: #{@player.pitching_accuracy} | Pitch Craft: #{@player.pitching_craftiness} | Fielding: #{@player.fielding} | Speed: #{@player.speed}" %></p>
+<br>
+<div class="four"><img src="/adam_sheehan.jpeg" alt=""></div>
+<div class="four">
   <h3>Batting:</h3>
   <table>
     <tr>
@@ -33,7 +35,7 @@
     </tr>
   </table>
 </div>
-<div class="player-show-column">
+<div class="four">
  <h3>Fielding:</h3>
   <table>
     <tr>

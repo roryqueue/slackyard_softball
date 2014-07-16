@@ -11,7 +11,7 @@
 <table>
   <% @runs.each do |run| %>
     <tr>
-      <td><h3><%= link_to run.scorer.name, team_player_path(run.scorer.team, run.scorer) %> batted in by <%= link_to run.batter.name, team_player_path(run.batter.team, run.batter) %> off <%= link_to run.pitcher.name, team_player_path(run.pitcher.team, run.pitcher) %></h3></td>
+      <td><h5><%= link_to run.scorer.name, team_player_path(run.scorer.team, run.scorer) %> batted in by <%= link_to run.batter.name, team_player_path(run.batter.team, run.batter) %> off <%= link_to run.pitcher.name, team_player_path(run.pitcher.team, run.pitcher) %></h5></td>
     </tr>
   <% end %>
 </table><br>

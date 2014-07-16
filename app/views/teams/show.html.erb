@@ -8,7 +8,7 @@
 </ol>
 <p><%= link_to "Edit Team", edit_team_path(@team) %> </p>
 <hr>
-<div class="team-stat-table">
+<div class="team-stat-table three">
   <h3>Batting:</h3>
   <table>
     <tr>
@@ -63,7 +63,7 @@
   <br>
   <%= render "partials/scores", games: @team.games.last(4) %>
 </div>
-<div class="team-roster">
+<div class="team-roster nine">
 <!-- <h2>Roster:</h2> -->
   <span class="cards">
     <%= render "refills/cards", person: @team.user %>
