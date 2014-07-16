@@ -2,9 +2,6 @@
   <li><%= link_to @game.away_team_lineup.team.name, team_path(@game.away_team_lineup.team) %></li>
   <li> (<%= link_to @away_pitcher.last_name, team_player_path(@game.away_team_lineup.team, @away_pitcher) %>) </li>
   <li>- <%= @game.away_score %> </li>
-</ol>
-
-<ol class="page-header">
   <li>@ <%= link_to @game.home_team_lineup.team.name, team_path(@game.home_team_lineup.team) %></li>
   <li> (<%= link_to @home_pitcher.last_name, team_player_path(@game.home_team_lineup.team, @home_pitcher) %>) </li>
   <li>- <%= @game.home_score %></li>
@@ -18,3 +15,30 @@
     </tr>
   <% end %>
 </table><br>
+<h1>Pitch Log:</h1>
+<table>
+  <thead>
+    <th>Inning</th>
+    <th>Pitcher</th>
+    <th>Batter</th>
+    <th>Strike?</th>
+    <th>Swing?</th>
+    <th>Contact?</th>
+    <th>Fielder</th>
+    <th>Result</th>
+  </thead>
+  <% @pitches.each do |pitch| %>
+    <tr>
+      <td><%= pitch.inning_number %></td>
+      <td><%= pitch.pitcher.name %></td>
+      <td><%= pitch.batter.name %></td>
+      <td><%= pitch.strike_zone %></td>
+      <td><%= pitch.swing %></td>
+      <td><%= pitch.contact %></td>
+      <td><%= pitch.fielder.name %></td>
+      <td><%= pitch.contact_result %></td>
+    </tr>
+  <% end %>
+</table>
+
+

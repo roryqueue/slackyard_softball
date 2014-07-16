@@ -34,18 +34,25 @@
 
 <div class="league-stat-leaders">
   <h1>League Leaders</h1><hr>
-  <h3>Batting:</h3><br>
+  <h3>Home Runs:</h3><br>
   <span class="cards">
-    <% @league.homerun_leaders.first(6).each do |player| %>
+    <% @league.homerun_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>
   <hr>
-<!-- </div>
- --><!-- <div class="stat-leaders"> -->
+
+  <h3>Batting Average:</h3><br>
+  <span class="cards">
+    <% @league.batting_leaders.first(3).each do |player| %>
+      <%= render "refills/cards", person: player %>
+    <% end %>
+  </span>
+  <hr>
+
   <h3>Pitching:</h3><br>
   <span class="cards">
-    <% @league.pitching_win_leaders.first(6).each do |player| %>
+    <% @league.pitching_win_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>

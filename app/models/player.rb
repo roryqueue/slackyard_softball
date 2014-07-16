@@ -36,8 +36,8 @@ class Player < ActiveRecord::Base
     outs = OutKeeper.where(batter_id: self.id).count
     unless outs.nil? || outs == 0
       average = (hits.to_f / (hits.to_f + outs.to_f)).round(3)
+      reformatted_average = ('%.3f' % average).sub(/^[0:]*/,"")
     end
-    reformatted_average = ('%.3f' % average).sub(/^[0:]*/,"")
   end
 
   def innings_pitched

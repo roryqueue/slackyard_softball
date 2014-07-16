@@ -3,7 +3,6 @@ class LeaguesController < ApplicationController
 
   def index
     @leagues = League.order("updated_at DESC").take(4)
-    @games = Game.order("updated_at DESC").take(8)
   end
 
   def show

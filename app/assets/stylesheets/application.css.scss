@@ -51,3 +51,43 @@
   font-size: 16pt;
   text-shadow: 2px 2px $dark-gray;
 }
+
+.landing {
+  background:url('/tee_ball.jpg') no-repeat center center;
+  min-height:100%;
+  background-size:cover;
+  min-height:800px;
+}
+
+.white-out {
+  color: $white;
+  text-shadow: 1px 1px $dark-gray;
+}
+
+.one {
+  @include span-columns(1);
+}
+
+.three {
+  @include span-columns(3);
+}
+
+.four {
+  @include span-columns(4);
+}
+
+.six {
+  @include span-columns(6);
+}
+
+.seven {
+  @include span-columns(7);
+}
+
+.eight {
+  @include span-columns(8);
+}
+
+.twelve {
+  @include span-columns(12);
+}

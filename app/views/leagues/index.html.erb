@@ -1,9 +1,29 @@
-<ol class="page-header">
-  <li>Leagues Around Softball Sim</li>
-</ol>
-
-<p><%= link_to "Create your own league!", new_league_path %></p><hr>
-
-<div class="games-table">
-  <%= render "partials/scores", games: @games %>
+<div class="landing">
+  <div class="six">
+    <ol class="page-header">
+      <li class="white-out">Chase your dreams.</li>
+    </ol>
+  </div>
+<!--   <div class="six">. -->
+<!--     <div class="one">.</div>
+    <div class="seven">
+      <h3 class="white-out">Live the fantasy of managing a recreational league softball team.</h3>
+    </div>
+    <div class="four"></div> -->
+<!--   </div>
+ -->
+  <div class="six">
+  <br>
+  <h1><%= link_to "Create your own league!", new_league_path, class: "white-out" %></h1>
+  <div class="six">
+  <h1 class="white-out">Top Leagues:</h1>
+  </div>
+  <div class="six">
+  <ul>
+    <% @leagues.each do |league| %>
+      <li><h1><%= link_to league.name, league_path(league), class: "white-out" %></h1></li><br>
+    <% end %>
+  </ul>
+  </div>
+  </div>
 </div>
