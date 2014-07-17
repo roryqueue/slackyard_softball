@@ -6,7 +6,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @runs = @game.score_keepers.order("created_at DESC")
+    @runs = @game.score_keepers.order("created_at ASC")
+    @pitches = @game.stat_keepers.order("created_at ASC")
     @home_pitcher = @game.home_team_lineup.pitcher
     @away_pitcher = @game.away_team_lineup.pitcher
   end

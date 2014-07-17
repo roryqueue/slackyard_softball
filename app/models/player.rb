@@ -1,4 +1,13 @@
 class Player < ActiveRecord::Base
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :batting_contact, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
+  validates :batting_power, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
+  validates :pitching_craftiness, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
+  validates :pitching_accuracy, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
+  validates :fielding, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
+  validates :speed, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
+
   mount_uploader :picture, PlayerPicUploader
   belongs_to :team
 
@@ -23,6 +32,10 @@ class Player < ActiveRecord::Base
     StatKeeper.where(batter_id: self.id).where(contact_result: 'single').count
   end
 
+  def hits
+    self.homeruns + self.triples + self.doubles + self.singles
+  end
+
   def rbis
     ScoreKeeper.where(batter_id: self.id).count
   end
@@ -37,7 +50,12 @@ class Player < ActiveRecord::Base
     unless outs.nil? || outs == 0
       average = (hits.to_f / (hits.to_f + outs.to_f)).round(3)
     end
-    reformatted_average = ('%.3f' % average).sub(/^[0:]*/,"")
+    if !average then average = 0 end
+    average
+  end
+
+  def batting_average_formatted
+    ('%.3f' % self.batting_average).sub(/^[0:]*/,"")
   end
 
   def innings_pitched
@@ -68,10 +86,20 @@ class Player < ActiveRecord::Base
     ScoreKeeper.where(game_id: game.id).where(scorer_id: self.id).count
   end
 
-  def hits_over_at_bats_in(game)
-    outs = OutKeeper.where(game_id: game.id).where(batter_id: self.id).count
-    hits = singles_in(game) + doubles_in(game) + triples_in(game) + homeruns_in(game)
-    ratio = hits.to_s + " / " + (hits + outs).to_s
+  def hits_in(game)
+    singles_in(game) + doubles_in(game) + triples_in(game) + homeruns_in(game)
+  end
+
+  def outs_batted_during(game)
+    OutKeeper.where(game_id: game.id).where(batter_id: self.id).count
+  end
+
+  def strikeouts_batted_during(game)
+    OutKeeper.where(game_id: game.id).where(batter_id: self.id).where(detail: :strikeout).count
+  end
+
+  def at_bats_in(game)
+    hits_in(game) + outs_batted_during(game)
   end
 
   def era

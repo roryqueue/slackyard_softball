@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: [:show, :edit, :update, :destroy] do
-    resources :players, only: :show
+    resources :players, only: [:show, :new, :create]
   end
 
+  resources :contacts, only: :index
 end

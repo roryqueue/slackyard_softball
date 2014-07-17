@@ -5,13 +5,13 @@
   <% end %>
 </ol>
 
-<ol class="page-header-sub">
-  <li><%= "Commissioner: #{@league.commissioner.user_name}" %> </li>
-  <li><%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %></li>
-</ol>
+
+<p>
+  <%= "Commissioner: #{@league.commissioner.user_name}" %> | <%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %>
+</p>
 <hr>
 
-<div class="standing-table">
+<div class="standing-table twelve">
   <h1>Standings</h1>
   <table>
     <thead>
@@ -32,24 +32,31 @@
   <br>
 </div>
 
-<div class="league-stat-leaders">
+<div class="league-stat-leaders nine">
   <h1>League Leaders</h1><hr>
-  <h3>Batting:</h3><br>
+  <h3>Home Runs:</h3><br>
   <span class="cards">
-    <% @league.homerun_leaders.first(6).each do |player| %>
+    <% @league.homerun_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>
   <hr>
-<!-- </div>
- --><!-- <div class="stat-leaders"> -->
+
+  <h3>Batting:</h3><br>
+  <span class="cards">
+    <% @league.hit_leaders.first(3).each do |player| %>
+      <%= render "refills/cards", person: player %>
+    <% end %>
+  </span>
+  <hr>
+
   <h3>Pitching:</h3><br>
   <span class="cards">
-    <% @league.pitching_win_leaders.first(6).each do |player| %>
+    <% @league.pitching_win_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>
 </div>
-<div class="games-table">
+<div class="three">
   <%= render "partials/scores", games: @league.games.last(7) %>
 </div>

@@ -1,0 +1,24 @@
+.main-content {
+  @include outer-container;
+}
+
+.page-header > li {
+  display: inline;
+  font-size: 36pt;
+  font-weight: 700;
+}
+
+.landing {
+  background:url('/tee_ball.jpg') no-repeat center center;
+  min-height:100%;
+  background-size:cover;
+  min-height:800px;
+  z-index: -1;
+}
+
+.contact-img {
+  height:auto;
+  width:auto;
+  max-height:100px;
+  border:1px solid $dark-gray;
+}

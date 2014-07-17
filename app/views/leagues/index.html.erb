@@ -1,9 +1,41 @@
-<ol class="page-header">
-  <li>Leagues Around Softball Sim</li>
-</ol>
-
-<p><%= link_to "Create your own league!", new_league_path %></p><hr>
-
-<div class="games-table">
-  <%= render "partials/scores", games: @games %>
+<div class="landing">
+  <div class="twelve">
+    <div class="six">
+      <ol class="page-header">
+        <li class="white-out landing-headline">Chase your dreams.</li>
+      </ol>
+      <!-- this is gonna be super ugly, I'll figure out a better solution later -->
+      <div class="eight"><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h5 class="hidden-one white-out">
+          Live the fantasy of managing a recreational softball team. Enter your team in a league, pick players, set a lineup. Your team will play an entire season overnight!
+        </h5>
+      </div>
+    </div>
+    <div class="six"><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <h1><%= link_to "Create your own league!", new_league_path, class: "white-out hidden-two" %></h1>
+      <div class="six">
+        <h1 class="white-out hidden-two">Top Leagues:</h1>
+      </div>
+      <div class="six">
+        <ul>
+          <% @leagues.each do |league| %>
+          <li><h1><%= link_to league.name, league_path(league), class: "white-out hidden-two" %></h1></li><br>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+
+  $('.hidden-one, .hidden-two').hide();
+
+  $('.landing-headline').hover(function() {
+    $('.hidden-one').fadeIn(100).show();
+  });
+
+  $('.hidden-one').hover(function() {
+    $('.hidden-two').fadeIn(100).show();
+  });
+</script>

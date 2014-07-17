@@ -4,17 +4,114 @@
   <li>- <%= @game.away_score %> </li>
 </ol>
 
+<table>
+  <thead>
+    <th>Player</th>
+    <th>At-Bats</th>
+    <th>Hits</th>
+    <th>RBIs</th>
+    <th>Runs</th>
+    <th>Singles</th>
+    <th>Doubles</th>
+    <th>Triples</th>
+    <th>Homeruns</th>
+    <th>Strikeouts</th>
+  </thead>
+  <% @game.away_team_lineup.team.players.each do |player|%>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.at_bats_in(@game) %></td>
+      <td><%= player.hits_in(@game) %></td>
+      <td><%= player.rbis_in(@game) %></td>
+      <td><%= player.runs_scored_in(@game) %></td>
+      <td><%= player.singles_in(@game) %></td>
+      <td><%= player.doubles_in(@game) %></td>
+      <td><%= player.triples_in(@game) %></td>
+      <td><%= player.homeruns_in(@game) %></td>
+      <td><%= player.strikeouts_batted_during(@game) %></td>
+    </tr>
+  <% end %>
+</table><br>
+
 <ol class="page-header">
   <li>@ <%= link_to @game.home_team_lineup.team.name, team_path(@game.home_team_lineup.team) %></li>
   <li> (<%= link_to @home_pitcher.last_name, team_player_path(@game.home_team_lineup.team, @home_pitcher) %>) </li>
   <li>- <%= @game.home_score %></li>
 </ol>
-<br>
-<h1>Scoring:</h1>
+
 <table>
-  <% @runs.each do |run| %>
+  <thead>
+    <th>Player</th>
+    <th>At-Bats</th>
+    <th>Hits</th>
+    <th>RBIs</th>
+    <th>Runs</th>
+    <th>Singles</th>
+    <th>Doubles</th>
+    <th>Triples</th>
+    <th>Homeruns</th>
+    <th>Strikeouts</th>
+  </thead>
+  <% @game.home_team_lineup.team.players.each do |player|%>
     <tr>
-      <td><h3><%= link_to run.scorer.name, team_player_path(run.scorer.team, run.scorer) %> batted in by <%= link_to run.batter.name, team_player_path(run.batter.team, run.batter) %> off <%= link_to run.pitcher.name, team_player_path(run.pitcher.team, run.pitcher) %></h3></td>
+      <td><%= player.name %></td>
+      <td><%= player.at_bats_in(@game) %></td>
+      <td><%= player.hits_in(@game) %></td>
+      <td><%= player.rbis_in(@game) %></td>
+      <td><%= player.runs_scored_in(@game) %></td>
+      <td><%= player.singles_in(@game) %></td>
+      <td><%= player.doubles_in(@game) %></td>
+      <td><%= player.triples_in(@game) %></td>
+      <td><%= player.homeruns_in(@game) %></td>
+      <td><%= player.strikeouts_batted_during(@game) %></td>
     </tr>
   <% end %>
 </table><br>
+
+<h2><a href="javascript:void(0)" class="score-log-title">Score Log</a> | <a href="javascript:void(0)" class="pitch-log-title">Pitch Log</a></h2>
+<table class="score-log">
+  <% @runs.each do |run| %>
+    <tr>
+      <td><h5><%= link_to run.scorer.name, team_player_path(run.scorer.team, run.scorer) %> batted in by <%= link_to run.batter.name, team_player_path(run.batter.team, run.batter) %> off <%= link_to run.pitcher.name, team_player_path(run.pitcher.team, run.pitcher) %></h5></td>
+    </tr>
+  <% end %>
+</table>
+<table class="pitch-log">
+  <thead>
+    <th>Inning</th>
+    <th>Pitcher</th>
+    <th>Batter</th>
+    <th>Strike?</th>
+    <th>Swing?</th>
+    <th>Contact?</th>
+    <th>Fielder</th>
+    <th>Result</th>
+  </thead>
+  <% @pitches.each do |pitch| %>
+    <tr>
+      <td><%= pitch.inning_number %></td>
+      <td><%= pitch.pitcher.name %></td>
+      <td><%= pitch.batter.name %></td>
+      <td><%= pitch.strike_zone %></td>
+      <td><%= pitch.swing %></td>
+      <td><%= pitch.contact %></td>
+      <td><%= pitch.fielder.name %></td>
+      <td><%= pitch.contact_result %></td>
+    </tr>
+  <% end %>
+</table><br>
+
+
+<script>
+  $('.score-log, .pitch-log').hide();
+
+  $('.score-log-title').click(function() {
+    $('.score-log').toggle();
+    $('.pitch-log').hide();
+  });
+
+  $('.pitch-log-title').click(function() {
+    $('.pitch-log').toggle();
+    $('.score-log').hide();
+  });
+</script>

@@ -1,0 +1,37 @@
+<div class="twelve">
+<h1>Create your own player!</h1><br>
+
+<%= simple_form_for [@team, @player] do |f| %>
+
+<div class="five">
+  <%= f.input :first_name, required: true, autofocus: true, label: "First Name"  %><br>
+
+  <%= f.input :batting_contact, required: true, label: "Bat Contact" %><br>
+
+  <%= f.input :pitching_accuracy, required: true, label: "Throw Accuracy" %><br>
+
+  <%= f.input :fielding, required: true, label: "Fielding" %><br>
+
+</div>
+<div class="five">
+
+  <%= f.input :last_name, required: true, label: "Last Name" %><br>
+
+  <%= f.input :batting_power, required: true, label: "Bat Power" %><br>
+
+  <%= f.input :pitching_craftiness, required: true, label: "Pitch Craft" %><br>
+
+  <%= f.input :speed, required: true, label: "Speed" %><br>
+
+</div>
+
+<div class="three">
+  <%= f.label :picture %>
+  <%= f.file_field :picture %>
+</div>
+
+<div class="three">
+    <%= f.button :submit %><br>
+  <% end %>
+</div>
+</div>

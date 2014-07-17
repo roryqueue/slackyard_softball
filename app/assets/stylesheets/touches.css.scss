@@ -1,0 +1,21 @@
+.white-out {
+  color: $white;
+  text-shadow: 1px 1px $dark-gray;
+}
+
+.white-out:hover {
+  color: $light-green;
+}
+
+
+.brand {
+  color: $red;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 16pt;
+  text-shadow: 2px 2px $dark-gray;
+}
+
+.hidden-text {
+
+}

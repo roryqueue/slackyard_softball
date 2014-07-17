@@ -9,8 +9,10 @@ class Season
 
   def play_season
     play_regular_season
-    playoff_teams = league.standings.first(4)
-    playoffs(playoff_teams[0], playoff_teams[1], playoff_teams[2], playoff_teams[3])
+    if teams.count >= 4
+      playoff_teams = league.standings.first(4)
+      playoffs(playoff_teams[0], playoff_teams[1], playoff_teams[2], playoff_teams[3])
+    end
   end
 
   def play_regular_season

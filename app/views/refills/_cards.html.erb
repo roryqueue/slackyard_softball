@@ -2,7 +2,7 @@
   <% if person.class == Player %>
     <div class="card">
       <div class="card-image">
-        <img src="https://raw.github.com/Magnus-G/Random/master/mountains.png" alt="">
+        <img src="/adam_sheehan.jpeg" alt="">
       </div>
       <div class="card-header">
         <%= link_to person.name, team_player_path(person.team, person) %>
@@ -20,7 +20,7 @@
           </ul>
         <% else %>
           <ul>
-            <li><%= person.batting_average %><span>Average</span></li>
+            <li><%= person.batting_average_formatted %><span>Average</span></li>
             <li><%= person.homeruns %><span>Homeruns</span></li>
             <li><%= person.rbis %><span>RBIs</span></li>
             <!-- <li><%= person.field_percentage %><span>Field %</span></li> -->
@@ -32,7 +32,7 @@
     <div class="card">
       <div class="ribbon-wrapper"><div class="ribbon">MANAGER</div></div>
       <div class="card-image">
-        <img src="https://raw.github.com/Magnus-G/Random/master/mountains-4.png" alt="">
+        <img src="/adam_sheehan.jpeg" alt="">
       </div>
       <div class="card-header">
         <%= person.user_name %>
@@ -44,7 +44,7 @@
         <ul>
           <li>98<span>Wins</span></li>
           <li>298<span>Losses</span></li>
-          <li>923<span>Titles (all-time)</span></li>
+          <li>3<span>Titles (all-time)</span></li>
         </ul>
       </div>
     </div>
