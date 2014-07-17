@@ -2,13 +2,24 @@
   <li><%= @team.name %> </li>
   <li><%= "(#{@team.wins} - #{@team.losses}), " %></li>
   <li><%= link_to @team.league.name, league_path(@team.league) %></li>
-  <% if current_user.try(:id) == @team.user_id %>
-
-  <% end %>
 </ol>
-<p><%= link_to "Edit Team", edit_team_path(@team) %> | <%= link_to "Add Player to Team", new_team_player_path(@team) %></p>
+<% if current_user.try(:id) == @team.user_id %>
+  <p><%= link_to "Edit Team", edit_team_path(@team) %> | <%= link_to "Add Player to Team", new_team_player_path(@team) %> \ <%= link_to "Add Lineup for Team", new_team_lineup_path(@team) %></p>
+<% end %>
 <hr>
 <div class="team-stat-table three">
+  <% if current_user.try(:id) == @team.user_id %>
+    <h3>Lineups:</h3>
+    <table>
+      <% @team.lineups.last(5).each do |lineup| %>
+        <tr>
+          <td><%= link_to lineup.nickname, edit_team_lineup_path(@team, lineup) %></td>
+          <td><%= "Active" if lineup.active == true %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br>
+  <% end %>
   <h3>Batting:</h3>
   <table>
     <tr>
@@ -61,10 +72,11 @@
     </tr>
   </table>
   <br>
+
   <%= render "partials/scores", games: @team.games.last(4) %>
 </div>
+
 <div class="team-roster nine">
-<!-- <h2>Roster:</h2> -->
   <span class="cards">
     <%= render "refills/cards", person: @team.user %>
     <% @team.players.each do |player| %>

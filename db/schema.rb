@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712224004) do
+ActiveRecord::Schema.define(version: 20140717213016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,26 +51,27 @@ ActiveRecord::Schema.define(version: 20140712224004) do
   end
 
   create_table "lineups", force: true do |t|
-    t.integer "team_id",           null: false
-    t.integer "pitcher_id",        null: false
-    t.integer "catcher_id",        null: false
-    t.integer "first_baseman_id",  null: false
-    t.integer "second_baseman_id", null: false
-    t.integer "third_baseman_id",  null: false
-    t.integer "shortstop_id",      null: false
-    t.integer "left_fielder_id",   null: false
-    t.integer "center_fielder_id", null: false
-    t.integer "right_fielder_id",  null: false
-    t.integer "first_up_id",       null: false
-    t.integer "second_up_id",      null: false
-    t.integer "third_up_id",       null: false
-    t.integer "fourth_up_id",      null: false
-    t.integer "fifth_up_id",       null: false
-    t.integer "sixth_up_id",       null: false
-    t.integer "seventh_up_id",     null: false
-    t.integer "eighth_up_id",      null: false
-    t.integer "ninth_up_id",       null: false
+    t.integer "team_id",                           null: false
+    t.integer "pitcher_id",                        null: false
+    t.integer "catcher_id",                        null: false
+    t.integer "first_baseman_id",                  null: false
+    t.integer "second_baseman_id",                 null: false
+    t.integer "third_baseman_id",                  null: false
+    t.integer "shortstop_id",                      null: false
+    t.integer "left_fielder_id",                   null: false
+    t.integer "center_fielder_id",                 null: false
+    t.integer "right_fielder_id",                  null: false
+    t.integer "first_up_id",                       null: false
+    t.integer "second_up_id",                      null: false
+    t.integer "third_up_id",                       null: false
+    t.integer "fourth_up_id",                      null: false
+    t.integer "fifth_up_id",                       null: false
+    t.integer "sixth_up_id",                       null: false
+    t.integer "seventh_up_id",                     null: false
+    t.integer "eighth_up_id",                      null: false
+    t.integer "ninth_up_id",                       null: false
     t.string  "nickname"
+    t.boolean "active",            default: false
   end
 
   create_table "out_keepers", force: true do |t|

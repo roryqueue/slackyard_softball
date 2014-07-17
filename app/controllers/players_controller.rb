@@ -12,14 +12,19 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     @player.team = Team.find(params[:team_id])
-
-    if @player.save
-      flash[:notice] = "Your player '#{@player.name}' has been created!"
-      redirect_to team_path(@player.team)
-    else
-      flash.now[:notice] = "Your player could not be created!"
-      render "players#new"
+    if owner?
+      if @player.save
+        flash[:notice] = "Your player '#{@player.name}' has been created!"
+        redirect_to team_path(@player.team)
+      else
+        flash.now[:notice] = "Your player could not be created!"
+        render "players#new"
+      end
     end
+  end
+
+  def owner?
+    current_user == @player.team.user
   end
 
   private

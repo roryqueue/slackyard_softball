@@ -1,0 +1,67 @@
+<div class="twelve">
+
+<h1>Assemble a lineup!</h1><br>
+
+<%= simple_form_for [@team, @lineup] do |f| %>
+
+  <div class="three">
+    <h3>Batting Order</h3><br>
+
+    <%= f.association :first_up, collection: @team.players %>
+
+    <%= f.association :second_up, collection: @team.players %>
+
+    <%= f.association :third_up, collection: @team.players %>
+
+    <%= f.association :fourth_up, collection: @team.players %>
+
+    <%= f.association :fifth_up, collection: @team.players %>
+
+    <%= f.association :sixth_up, collection: @team.players %>
+
+    <%= f.association :seventh_up, collection: @team.players %>
+
+    <%= f.association :eighth_up, collection: @team.players %>
+
+    <%= f.association :ninth_up, collection: @team.players %>
+
+  </div>
+
+  <div class="three">
+
+    <h3>Field Positions</h3><br>
+
+    <%= f.association :pitcher, collection: @team.players %>
+
+    <%= f.association :catcher, collection: @team.players %>
+
+    <%= f.association :first_baseman, collection: @team.players %>
+
+    <%= f.association :second_baseman, collection: @team.players %>
+
+    <%= f.association :third_baseman, collection: @team.players %>
+
+    <%= f.association :shortstop, collection: @team.players %>
+
+    <%= f.association :left_fielder, collection: @team.players %>
+
+    <%= f.association :center_fielder, collection: @team.players %>
+
+    <%= f.association :right_fielder, collection: @team.players %>
+
+
+
+  </div>
+
+  <div class="three">
+
+    <h3>Identifiers</h3><br>
+
+    <%=f.input :active, label: "Set lineup to active?" %><br>
+
+    <%= f.button :submit %><br>
+    <%= link_to "Delete Lineup", team_lineup_path(@team, @lineup), method: :delete %>
+  </div>
+
+<% end %>
+</div>
