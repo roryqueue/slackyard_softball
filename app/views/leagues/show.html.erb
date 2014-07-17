@@ -5,10 +5,10 @@
   <% end %>
 </ol>
 
-<ol class="page-header-sub">
-  <li><%= "Commissioner: #{@league.commissioner.user_name}" %> </li>
-  <li><%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %></li>
-</ol>
+
+<p>
+  <%= "Commissioner: #{@league.commissioner.user_name}" %> | <%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %>
+</p>
 <hr>
 
 <div class="standing-table twelve">
@@ -42,9 +42,9 @@
   </span>
   <hr>
 
-  <h3>Batting Average:</h3><br>
+  <h3>Batting:</h3><br>
   <span class="cards">
-    <% @league.batting_leaders.first(3).each do |player| %>
+    <% @league.hit_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>

@@ -16,7 +16,11 @@ class League < ActiveRecord::Base
     Game.where(home_team_lineup_id: Lineup.select(:id).where(team_id: Team.select(:id).where(league_id: self.id)))
   end
 
-  def batting_leaders
+  def hit_leaders
+    self.players.sort_by { |player| player.hits }.reverse!
+  end
+
+  def batting_average_leaders
     self.players.sort_by { |player| if player.batting_average then player.batting_average end }.reverse!
   end
 

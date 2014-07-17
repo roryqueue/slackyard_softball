@@ -1,0 +1,1090 @@
+/* line 2, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/extends/_button.scss */
+button,
+input[type="submit"] {
+  -webkit-font-smoothing: antialiased;
+  background-color: #477dca;
+  border-radius: 0.1875em;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: .75em 1em;
+  text-decoration: none;
+}
+/* line 13, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/extends/_button.scss */
+button:hover,
+input[type="submit"]:hover {
+  background-color: #2c5999;
+  color: white;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #faf8cb;
+  color: #333333;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* line 10, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  line-height: 1.25em;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 17, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h1 {
+  font-size: 2.25em;
+}
+
+/* line 21, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h2 {
+  font-size: 2em;
+}
+
+/* line 25, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h3 {
+  font-size: 1.75em;
+}
+
+/* line 29, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h4 {
+  font-size: 1.5em;
+}
+
+/* line 33, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h5 {
+  font-size: 1.25em;
+}
+
+/* line 37, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+h6 {
+  font-size: 1em;
+}
+
+/* line 41, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+p {
+  margin: 0 0 0.75em;
+}
+
+/* line 45, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+a {
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #477dca;
+  text-decoration: none;
+}
+/* line 50, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+a:hover {
+  color: #2c5999;
+}
+/* line 54, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+a:active, a:focus {
+  color: #2c5999;
+  outline: none;
+}
+
+/* line 60, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+hr {
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.5em 0;
+}
+
+/* line 68, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+img {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* line 73, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+blockquote {
+  border-left: 2px solid #dddddd;
+  color: #595959;
+  margin: 1.5em 0;
+  padding-left: 0.75em;
+}
+
+/* line 80, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+cite {
+  color: #737373;
+  font-style: italic;
+}
+/* line 84, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_typography.scss */
+cite:before {
+  content: '\2014 \00A0';
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+fieldset {
+  background: #f7f7f7;
+  border: 1px solid #dddddd;
+  margin: 0 0 0.75em 0;
+  padding: 1.5em;
+}
+
+/* line 10, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+input,
+label,
+select {
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+}
+
+/* line 16, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+label {
+  font-weight: bold;
+  margin-bottom: 0.375em;
+}
+/* line 20, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+label.required:after {
+  content: "*";
+}
+/* line 24, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+label abbr {
+  display: none;
+}
+
+/* line 31, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+textarea,
+input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+select[multiple=multiple] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  transition: border-color;
+  background-color: white;
+  border-radius: 0.1875em;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+  margin-bottom: 0.75em;
+  padding: 0.5em 0.5em;
+  width: 100%;
+}
+/* line 44, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+textarea:hover,
+input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover,
+select[multiple=multiple]:hover {
+  border-color: #c4c4c4;
+}
+/* line 48, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+textarea:focus,
+input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus,
+select[multiple=multiple]:focus {
+  border-color: #477dca;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(55, 112, 192, 0.7);
+  outline: none;
+}
+
+/* line 55, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 59, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+/* line 63, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+input[type="checkbox"], input[type="radio"] {
+  display: inline;
+  margin-right: 0.375em;
+}
+
+/* line 68, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+input[type="file"] {
+  margin-bottom: 0.75em;
+  padding-bottom: 0.5em;
+  width: 100%;
+}
+
+/* line 74, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_forms.scss */
+select {
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 1.5em;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* line 8, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_tables.scss */
+th {
+  border-bottom: 1px solid #b7b7b7;
+  font-weight: bold;
+  padding: 0.75em 0;
+  text-align: left;
+}
+
+/* line 15, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_tables.scss */
+td {
+  border-bottom: 1px solid #dddddd;
+  padding: 0.75em 0;
+}
+
+/* line 20, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_tables.scss */
+tr, td, th {
+  vertical-align: middle;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_lists.scss */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 19, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_lists.scss */
+dl {
+  margin-bottom: 0.75em;
+}
+/* line 22, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_lists.scss */
+dl dt {
+  font-weight: bold;
+  margin-top: 0.75em;
+}
+/* line 27, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_lists.scss */
+dl dd {
+  margin: 0;
+}
+
+/* line 2, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/base/_buttons.scss */
+button,
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* line 15, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+.cards:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 11, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: #f7f7f7;
+  border-radius: 0.1875em;
+  border: 1px solid #dddddd;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 4px #1a1a1a;
+  position: relative;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 11, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+  .card {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+  }
+  /* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .card:last-child {
+    margin-right: 0;
+  }
+  /* line 52, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .card:nth-child(3n) {
+    margin-right: 0;
+  }
+  /* line 57, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .card:nth-child(3n+1) {
+    clear: left;
+  }
+}
+/* line 35, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-image {
+  overflow: hidden;
+  max-height: 400px;
+}
+/* line 39, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-image img {
+  width: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background: #dbd199;
+  border-top-left-radius: 0.1875em;
+  border-top-right-radius: 0.1875em;
+}
+/* line 48, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .ribbon-wrapper {
+  width: 85px;
+  height: 85px;
+  overflow: hidden;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+/* line 57, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .ribbon-wrapper .ribbon {
+  font-size: .8em;
+  font-weight: 800;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: relative;
+  padding: 2px 7px;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #477dca;
+  color: white;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+/* line 73, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-header {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #dddddd;
+  border-radius: 0.1875em 0.1875em 0 0;
+  font-weight: bold;
+  padding: 0.5em 0.809em;
+}
+/* line 82, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-copy {
+  padding: 0.75em 0.809em;
+  font-size: .9em;
+  line-height: 1.5em;
+}
+/* line 88, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-stats {
+  padding: 0.75em 0.809em;
+  overflow: auto;
+}
+/* line 92, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-stats ul li {
+  display: inline;
+  color: #6f99d5;
+  font-weight: 800;
+  font-size: 1.2em;
+  float: left;
+  border-right: 1px solid rgba(51, 51, 51, 0.2);
+  line-height: 1.1em;
+  padding: 0 .7em 0 .7em;
+}
+/* line 102, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-stats ul li:first-child {
+  padding-left: 0;
+}
+/* line 106, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-stats ul li:last-child {
+  border-right: 0;
+}
+/* line 110, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card .card-stats ul li span {
+  color: #333333;
+  font-size: .7em;
+  display: block;
+  font-weight: normal;
+}
+/* line 119, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card:hover {
+  background-color: white;
+}
+/* line 122, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card:hover .card-image img {
+  background: #e2daac;
+}
+/* line 126, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card:hover .card-header {
+  background-color: white;
+}
+/* line 131, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card:active {
+  background-color: #f7f7f7;
+}
+/* line 134, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_cards.scss */
+.card:active .card-header {
+  background-color: #f7f7f7;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation {
+  background-color: #40526b;
+  border-bottom: 1px solid #2d394b;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  height: 60px;
+  width: 100%;
+  z-index: 999;
+}
+/* line 23, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .menu-wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 9999;
+}
+/* line 15, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+header.navigation .menu-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 15, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+header.navigation .menu-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 30, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .logo {
+  float: left;
+  max-height: 60px;
+  padding-left: 1em;
+  padding-right: 2em;
+}
+/* line 36, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .logo img {
+  max-height: 60px;
+  padding: .8em 0;
+}
+/* line 42, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .navigation-menu-button {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: block;
+  float: right;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 60px;
+  margin: 0;
+  padding-right: 1em;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 42, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .navigation-menu-button {
+    display: none;
+  }
+}
+/* line 58, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .navigation-menu-button:hover {
+  color: white;
+}
+/* line 63, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .nav {
+  z-index: 9999999;
+  float: none;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 63, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .nav {
+    float: left;
+  }
+}
+/* line 71, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation ul#navigation-menu {
+  clear: both;
+  -webkit-transform-style: preserve-3d;
+  display: none;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0;
+  width: 100%;
+  z-index: 9999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 71, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation ul#navigation-menu {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
+/* line 88, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation ul li {
+  background: #40526b;
+  display: block;
+  line-height: 60px;
+  overflow: hidden;
+  padding-right: .8em;
+  text-align: right;
+  width: 100%;
+  z-index: 9999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 88, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation ul li {
+    background: transparent;
+    display: inline;
+    line-height: 60px;
+    padding-right: 2em;
+    text-decoration: none;
+    width: auto;
+  }
+}
+/* line 107, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation ul li a {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 111, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation ul li a:hover {
+  color: white;
+}
+/* line 117, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .active-nav-item a {
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* line 122, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation li.more {
+  padding-right: 0;
+}
+/* line 125, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation li.more:hover .submenu {
+  display: block;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 122, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation li.more {
+    position: relative;
+    padding-right: .8em;
+  }
+}
+/* line 135, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation li.more a {
+  padding-right: .8em;
+}
+/* line 139, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .submenu {
+  display: none;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 139, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .submenu {
+    position: absolute;
+    top: 1em;
+    left: -1em;
+  }
+}
+/* line 148, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .submenu li {
+  display: block;
+  padding-right: 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 148, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .submenu li {
+    line-height: 46.15385px;
+  }
+  /* line 155, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .submenu li:first-child a {
+    padding-top: 1em;
+  }
+  /* line 158, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .submenu li:last-child a {
+    border-bottom-left-radius: 0.1875em;
+    border-bottom-right-radius: 0.1875em;
+    padding-bottom: .7em;
+  }
+}
+/* line 165, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .submenu li a {
+  text-align: right;
+  background-color: #3a4a62;
+  width: 100%;
+  display: inline-block;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 165, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .submenu li a {
+    width: 12em;
+    background-color: #40526b;
+    text-align: left;
+    padding-left: 1em;
+  }
+}
+/* line 181, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .navigation-tools {
+  display: block;
+  padding-right: 1em;
+  padding-left: 1em;
+  clear: both;
+  background: #505050;
+}
+/* line 15, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+header.navigation .navigation-tools:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 181, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .navigation-tools {
+    background: transparent;
+    float: right;
+    clear: none;
+  }
+}
+/* line 196, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation a.sign-up {
+  margin-top: 13px;
+  float: right;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline;
+  background: #477dca;
+  border-radius: 0.1875em;
+  color: white;
+  font-size: .8em;
+  font-weight: 800;
+  padding: .4em 1em;
+  text-transform: uppercase;
+}
+/* line 209, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation a.sign-up:hover {
+  background: #6f99d5;
+}
+/* line 214, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .search-bar {
+  padding: 13px 5px;
+  float: left;
+}
+/* line 221, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .search-bar .search-and-submit {
+  position: relative;
+}
+/* line 224, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .search-bar .search-and-submit input[type=search] {
+  background: #495e7b;
+  border: 1px solid #36465b;
+  padding: .6em .8em;
+  font-size: .9em;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.375em;
+  margin: 0;
+}
+/* line 235, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .search-bar .search-and-submit button[type=submit] {
+  border: 1px solid #3a5376;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 #929fb2;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  background-color: #5c769b;
+  background-image: -webkit-linear-gradient(#5c769b, #3f5a81);
+  background-image: linear-gradient(#5c769b, #3f5a81);
+  padding: 7px 18px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #2e486d;
+  background-clip: padding-box;
+  position: absolute;
+  top: 0.3em;
+  right: 0.3em;
+  bottom: 0.3em;
+  outline: none;
+  padding: 5px 15px;
+}
+/* line 131, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar .search-and-submit button[type=submit]:hover:not(:disabled) {
+  box-shadow: inset 0 1px 0 0 #73859e;
+  cursor: pointer;
+  background-color: #576b87;
+  background-image: -webkit-linear-gradient(#576b87, #3b5375);
+  background-image: linear-gradient(#576b87, #3b5375);
+}
+/* line 148, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar .search-and-submit button[type=submit]:active:not(:disabled), header.navigation .search-bar .search-and-submit button[type=submit]:focus:not(:disabled) {
+  border: 1px solid #3a5376;
+  box-shadow: inset 0 0 8px 4px #364c6a, inset 0 0 8px 4px #364c6a;
+}
+/* line 51, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar .search-and-submit button[type=submit]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 241, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+header.navigation .search-bar .search-and-submit button[type=submit] img {
+  height: 12px;
+  opacity: .7;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 214, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .search-bar {
+    width: 16em;
+    position: relative;
+    display: inline-block;
+  }
+  /* line 253, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_navigation.scss */
+  header.navigation .search-bar input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+  }
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.wrapper-for-content-outside-of-footer {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+/* line 8, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 12, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2, .push {
+  height: 17em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 12, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+  .footer-2, .push {
+    height: 4em;
+  }
+}
+
+/* line 20, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 {
+  background: #40526b;
+  padding: 1.5em;
+  width: 100%;
+}
+/* line 30, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-logo {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 30, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+  .footer-2 .footer-logo {
+    float: left;
+    margin-bottom: 0;
+  }
+}
+/* line 40, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-logo img {
+  height: 1.6em;
+}
+/* line 44, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 ul {
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 44, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+  .footer-2 ul {
+    float: left;
+    margin-left: 1em;
+    margin-bottom: 0;
+  }
+}
+/* line 53, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 ul li {
+  padding-right: 1em;
+  font-weight: 800;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 53, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+  .footer-2 ul li {
+    display: inline;
+    text-align: left;
+  }
+}
+/* line 63, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 ul li a {
+  color: rgba(255, 255, 255, 0.4);
+}
+/* line 66, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 ul li a:hover {
+  color: white;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 71, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+  .footer-2 .footer-secondary-links {
+    float: right;
+  }
+}
+/* line 76, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-secondary-links li {
+  font-size: .8em;
+  font-weight: 400;
+}
+/* line 81, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-secondary-links ul.footer-social {
+  margin-top: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 81, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+  .footer-2 .footer-secondary-links ul.footer-social {
+    float: right;
+    margin-top: 0;
+  }
+}
+/* line 89, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-secondary-links ul.footer-social li {
+  float: left;
+  font-size: 1em;
+  padding-right: .7em;
+}
+/* line 94, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-secondary-links ul.footer-social li:last-child {
+  padding-right: 0;
+}
+/* line 99, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-secondary-links ul.footer-social img {
+  opacity: .7;
+  height: 1.6em;
+  padding: 1px;
+}
+/* line 104, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/refills/_footer-2.scss */
+.footer-2 .footer-secondary-links ul.footer-social img:hover {
+  opacity: 1;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/main.css.scss */
+.main-content {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/Rory/.gem/ruby/2.0.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+.main-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 5, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/main.css.scss */
+.page-header > li {
+  display: inline;
+  font-size: 36pt;
+  font-weight: 700;
+}
+
+/* line 11, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/main.css.scss */
+.landing {
+  background: url("/tee_ball.jpg") no-repeat center center;
+  min-height: 100%;
+  background-size: cover;
+  min-height: 800px;
+  z-index: -1;
+}
+
+/* line 19, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/main.css.scss */
+.contact-img {
+  height: auto;
+  width: auto;
+  max-height: 100px;
+  border: 1px solid #333333;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.one {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.one:last-child {
+  margin-right: 0;
+}
+
+/* line 5, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.two {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.two:last-child {
+  margin-right: 0;
+}
+
+/* line 9, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.three {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.three:last-child {
+  margin-right: 0;
+}
+
+/* line 13, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.four {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.four:last-child {
+  margin-right: 0;
+}
+
+/* line 17, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.five {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.five:last-child {
+  margin-right: 0;
+}
+
+/* line 21, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.six {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.six:last-child {
+  margin-right: 0;
+}
+
+/* line 25, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.seven {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.seven:last-child {
+  margin-right: 0;
+}
+
+/* line 29, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.eight {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.eight:last-child {
+  margin-right: 0;
+}
+
+/* line 33, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.nine {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 74.41059%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.nine:last-child {
+  margin-right: 0;
+}
+
+/* line 37, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.ten {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.ten:last-child {
+  margin-right: 0;
+}
+
+/* line 41, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.eleven {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 91.4702%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.eleven:last-child {
+  margin-right: 0;
+}
+
+/* line 45, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/columns.css.scss */
+.twelve {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+}
+/* line 38, /Users/Rory/.gem/ruby/2.0.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.twelve:last-child {
+  margin-right: 0;
+}
+
+/* line 1, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/touches.css.scss */
+.white-out {
+  color: white;
+  text-shadow: 1px 1px #333333;
+}
+
+/* line 6, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/touches.css.scss */
+.white-out:hover {
+  color: #e6efc2;
+}
+
+/* line 11, /Users/Rory/Dropbox/slackyard/slackyard_softball/app/assets/stylesheets/touches.css.scss */
+.brand {
+  color: #df0101;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 16pt;
+  text-shadow: 2px 2px #333333;
+}

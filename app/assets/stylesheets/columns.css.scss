@@ -2,12 +2,20 @@
   @include span-columns(1);
 }
 
+.two {
+  @include span-columns(2);
+}
+
 .three {
   @include span-columns(3);
 }
 
 .four {
   @include span-columns(4);
+}
+
+.five {
+  @include span-columns(5);
 }
 
 .six {
@@ -24,6 +32,14 @@
 
 .nine {
   @include span-columns(9);
+}
+
+.ten {
+  @include span-columns(10);
+}
+
+.eleven {
+  @include span-columns(11);
 }
 
 .twelve {

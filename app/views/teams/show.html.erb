@@ -6,7 +6,7 @@
 
   <% end %>
 </ol>
-<p><%= link_to "Edit Team", edit_team_path(@team) %> </p>
+<p><%= link_to "Edit Team", edit_team_path(@team) %> | <%= link_to "Add Player to Team", new_team_player_path(@team) %></p>
 <hr>
 <div class="team-stat-table three">
   <h3>Batting:</h3>
@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <td>Average:</td>
-      <td><%= @team.batting_average %></td>
+      <td><%= @team.batting_average_formatted %></td>
     </tr>
     <tr>
       <td>Homeruns:</td>

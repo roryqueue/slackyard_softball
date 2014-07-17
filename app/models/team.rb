@@ -81,8 +81,13 @@ class Team < ActiveRecord::Base
     outs = OutKeeper.where(batter_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0
       average = (hits.to_f / (hits + outs).to_f).round(3)
-      reformatted_average = ('%.3f' % average).sub(/^[0:]*/,"")
     end
+    if !average then average = 0 end
+    average
+  end
+
+  def batting_average_formatted
+    ('%.3f' % self.batting_average).sub(/^[0:]*/,"")
   end
 
   def era
