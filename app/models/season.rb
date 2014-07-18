@@ -15,7 +15,15 @@ class Season
       playoff_teams = league.standings.first(4)
       winning_lineup = playoffs(playoff_teams[0].active_lineup, playoff_teams[1].active_lineup, playoff_teams[2].active_lineup, playoff_teams[3].active_lineup)
     end
-    winning_lineup.team
+    champion = winning_lineup.team
+    crown_champion(champion)
+  end
+
+  def crown_champion(champion)
+    new_title_count = User.find(champion.user_id).titles + 1
+    User.update(champion.user_id, titles: new_title_count)
+    League.update(league, champion_id: champion.id)
+    champion
   end
 
   def find_active_lineups
