@@ -15,6 +15,13 @@
               <% end %>
             </ul>
           </li>
+          <li class="nav-link more"><a href="javascript:void(0)">My Teams</a>
+            <ul class="submenu">
+              <% current_user.teams.each do |team| %>
+              <li><%= link_to team.name, team_path(team) %></li>
+              <% end %>
+            </ul>
+          </li>
           <li class="nav-link"><%= link_to "Edit account", edit_user_registration_path %></li>
           <li class="nav-link"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>

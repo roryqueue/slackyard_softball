@@ -35,10 +35,6 @@ I want to be picked as commissioner of a league,
 so I can control the activity.
 
 As a user,
-I want to pick players for my team,
-so I can find the best combination.
-
-As a user,
 I want to set a lineup for my team,
 so I can put players in the right positions and batting order.
 
@@ -49,7 +45,7 @@ so I can find out who is the best.
 As a commissioner,
 I want to simulate a playoff for my league,
 so we can find out who is champion.
-
+X
 As a user,
 I want to see statistics for my team and players,
 so I can tell who is doing well.
