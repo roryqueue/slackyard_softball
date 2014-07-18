@@ -78,4 +78,9 @@
     center_fielder_id: rays7.id, right_fielder_id: rays8.id, first_up_id: rays0.id, second_up_id: rays1.id,
     third_up_id: rays2.id, fourth_up_id: rays3.id, fifth_up_id: rays4.id, sixth_up_id: rays5.id,
     seventh_up_id: rays6.id, eighth_up_id: rays7.id, ninth_up_id: rays8.id, nickname: "Rays Lineup", active: true)
+<<<<<<< HEAD
 Season.new(american_league)
+=======
+
+  Season.new(american_league)
+>>>>>>> master
