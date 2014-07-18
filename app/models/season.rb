@@ -19,43 +19,21 @@ class Season
     crown_champion(champion)
   end
 
-  def crown_champion(champion)
-    new_title_count = User.find(champion.user_id).titles + 1
-    User.update(champion.user_id, titles: new_title_count)
-    League.update(league, champion_id: champion.id)
-    champion
-  end
-
   def find_active_lineups
     teams.each do |team|
-      @active_lineups << team.active_lineup
-    end
-  end
-
-  def play_regular_season
-    round_robin.each do |week|
-      week.each do |matchup|
-        series(matchup[0], matchup[1], 3)
+      if team.active_lineup
+        @active_lineups << team.active_lineup
       end
     end
   end
 
-  def playoffs(first_place, second_place, third_place, fourth_place)
-    play_game(play_game(first_place, fourth_place), play_game(second_place, third_place))
-  end
-
-  def play_game(lineup_one, lineup_two)
-    game = GameManager.new(lineup_one, lineup_two)
-    if game.home_score > game.away_score
-      game.home_team.lineup
-    else
-      game.away_team.lineup
-    end
-  end
-
-  def series(team_one, team_two, number_of_games)
-    number_of_games.times do
-      play_game(team_one, team_two)
+  def play_regular_season
+    2.times do
+      round_robin.each do |week|
+        week.each do |matchup|
+          series(matchup[0], matchup[1], 3)
+        end
+      end
     end
   end
 
@@ -82,6 +60,49 @@ class Season
       i += 1
     end
     rounds
+  end
+
+  def series(team_one, team_two, number_of_games)
+    number_of_games.times do
+      play_game(team_one, team_two)
+    end
+  end
+
+  def play_game(lineup_one, lineup_two)
+    game = GameManager.new(lineup_one, lineup_two)
+    if game.home_score > game.away_score
+      game.home_team.lineup
+    else
+      game.away_team.lineup
+    end
+  end
+
+  def playoffs(first_place, second_place, third_place, fourth_place)
+    playoff_series(playoff_series(first_place, fourth_place, 5), playoff_series(second_place, third_place, 5), 5)
+  end
+
+  def playoff_series(team_one, team_two, number_of_games)
+    team_one_wins = 0
+    team_two_wins = 0
+    until ((number_of_games.to_i + 1) / 2) <= team_one_wins || team_two_wins
+      if play_game(team_one, team_two) == team_one
+        team_one_wins += 1
+      else
+        team_two_wins += 1
+      end
+    end
+    if team_one_wins > team_two_wins
+      team_one
+    else
+      team_two
+    end
+  end
+
+  def crown_champion(champion)
+    new_title_count = User.find(champion.user_id).titles + 1
+    User.update(champion.user_id, titles: new_title_count)
+    League.update(league, champion_id: champion.id)
+    champion
   end
 
 end

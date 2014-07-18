@@ -5,7 +5,7 @@
 </ol>
 <p><%= "Bat Contact: #{@player.batting_contact} | Bat Power: #{@player.batting_power} | Throw Accuracy: #{@player.pitching_accuracy} | Pitch Craft: #{@player.pitching_craftiness} | Fielding: #{@player.fielding} | Speed: #{@player.speed}" %></p>
 <br>
-<div class="four"><img src="/adam_sheehan.jpeg" alt=""></div>
+<div class="four"><img src=<%= @player.picture || "/adam_sheehan.jpeg" %> alt=""></div>
 <div class="four">
   <h3>Batting:</h3>
   <table>
@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <td>Batting Average:</td>
-      <td><%= @player.batting_average %></td>
+      <td><%= @player.batting_average_formatted %></td>
     </tr>
     <tr>
       <td>Home Runs:</td>
