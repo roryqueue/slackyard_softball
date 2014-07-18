@@ -8,7 +8,7 @@ task play_seasons: :environment do
   puts "Playing new seasons..."
 
   League.find_each do |league|
-    Season.new(league.id)
+    Season.new(league)
   end
 
   puts "Seasons complete."
