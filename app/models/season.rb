@@ -45,12 +45,11 @@ class Season
   end
 
   def play_game(lineup_one, lineup_two)
-    GameManager.new(lineup_one, lineup_two)
-    game = Game.order("created_at DESC").last
+    game = GameManager.new(lineup_one, lineup_two)
     if game.home_score > game.away_score
-      game.home_team_lineup
+      game.home_team.lineup
     else
-      game.away_team_lineup
+      game.away_team.lineup
     end
   end
 
