@@ -24,7 +24,7 @@ class PlayersController < ApplicationController
   end
 
   def owner?
-    current_user == @player.team.user
+    current_user.try(:id) == @player.team.user_id
   end
 
   private

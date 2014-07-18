@@ -20,12 +20,12 @@ describe Team do
     expect(team.wins).to eq 0
     expect(team.losses).to eq 0
     expect(team.err_count).to eq 0
+    expect(team.batting_average).to eq 0
   end
 
   it 'calculates team stats, those with divide-by-zero constraints are nil' do
     team = FactoryGirl.build(:team)
 
-    expect(team.batting_average).to eq nil
     expect(team.era).to eq nil
     expect(team.field_percentage).to eq nil
   end

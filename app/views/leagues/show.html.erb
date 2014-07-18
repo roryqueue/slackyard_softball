@@ -3,6 +3,7 @@
   <% if current_user.try(:id) == @league.commissioner_id %>
     <li><%= link_to 'Edit', edit_league_path(@league) %></li>
   <% end %>
+  <li> (Champion: <%= link_to @league.champion.name, team_path(@league.champion) %>)</li>
 </ol>
 
 

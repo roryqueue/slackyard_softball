@@ -1,6 +1,7 @@
 class League < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   has_many :teams
+  has_one :champion, class_name: "Team"
   belongs_to :commissioner, class_name: "User"
 
   def standings

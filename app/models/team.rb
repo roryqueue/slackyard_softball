@@ -10,6 +10,10 @@ class Team < ActiveRecord::Base
   belongs_to :league
   belongs_to :user
 
+  def active_lineup
+    Lineup.where(team_id: self.id).where(active: true).last
+  end
+
   def games
     home_games = Game.where(home_team_lineup_id: Lineup.select(:id).where(team_id: self.id))
     away_games = Game.where(away_team_lineup_id: Lineup.select(:id).where(team_id: self.id))
