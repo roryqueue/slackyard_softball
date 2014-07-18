@@ -47,7 +47,7 @@ class LineupsController < ApplicationController
   end
 
   def owner?
-    current_user == @lineup.team.user
+    current_user.try(:id) == @lineup.team.user_id
   end
 
   private

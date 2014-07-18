@@ -50,7 +50,7 @@ class TeamsController < ApplicationController
   end
 
   def owner?
-    current_user == @team.user
+    current_user.try(:id) == @team.user_id
   end
 
   private

@@ -11,7 +11,7 @@ describe League do
     league = FactoryGirl.build(:league)
 
     expect(league.standings).to eq []
-    expect(league.batting_leaders).to eq []
+    expect(league.hit_leaders).to eq []
     expect(league.homerun_leaders).to eq []
     expect(league.rbi_leaders).to eq []
     expect(league.era_leaders).to eq []

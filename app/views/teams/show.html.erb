@@ -11,9 +11,9 @@
   <% if current_user.try(:id) == @team.user_id %>
     <h3>Lineups:</h3>
     <table>
-      <% @team.lineups.last(5).each do |lineup| %>
+      <% @team.lineups.last(3).each do |lineup| %>
         <tr>
-          <td><%= link_to lineup.nickname, edit_team_lineup_path(@team, lineup) %></td>
+          <td><%= link_to lineup.nickname, edit_lineup_path(lineup) %></td>
           <td><%= "Active" if lineup.active == true %></td>
         </tr>
       <% end %>

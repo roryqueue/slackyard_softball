@@ -1,17 +1,26 @@
 class Season
-  attr_reader :league, :teams, :champion
+  attr_reader :league, :teams, :active_lineups, :champion
 
   def initialize(league)
     @league = league
     @teams = league.teams.to_a
+    @active_lineups = []
     @champion = play_season
   end
 
   def play_season
+    find_active_lineups
     play_regular_season
     if teams.count >= 4
       playoff_teams = league.standings.first(4)
-      playoffs(playoff_teams[0], playoff_teams[1], playoff_teams[2], playoff_teams[3])
+      winning_lineup = playoffs(playoff_teams[0].active_lineup, playoff_teams[1].active_lineup, playoff_teams[2].active_lineup, playoff_teams[3].active_lineup)
+    end
+    winning_lineup.team
+  end
+
+  def find_active_lineups
+    teams.each do |team|
+      @active_lineups << team.active_lineup
     end
   end
 
@@ -27,14 +36,13 @@ class Season
     play_game(play_game(first_place, fourth_place), play_game(second_place, third_place))
   end
 
-  def play_game(team_one, team_two)
-    GameManager.create(Lineup.where(team: team_one).where(active: true),
-      Lineup.where(team: team_two).where(active: true))
+  def play_game(lineup_one, lineup_two)
+    GameManager.new(lineup_one, lineup_two)
     game = Game.order("created_at DESC").last
     if game.home_score > game.away_score
-      game home_team_lineup.team
+      game.home_team_lineup
     else
-      game away_team_lineup.team
+      game.away_team_lineup
     end
   end
 
@@ -46,24 +54,24 @@ class Season
 
   def round_robin
     rounds = []
-    if teams.length % 2 != 0
-      teams << nil
+    if active_lineups.length % 2 != 0
+      active_lineups << nil
     end
-    num_matches = teams.length / 2
-    num_rounds = teams.length - 1
+    num_matches = active_lineups.length / 2
+    num_rounds = active_lineups.length - 1
     i = 0
     while i < num_rounds
       matches = []
       j = 0
       while j < num_matches
-        matches << [teams[j], teams[j + num_matches]].compact
+        matches << [active_lineups[j], active_lineups[j + num_matches]].compact
         j += 1
       end
       rounds << matches
-      first = teams.shift
-      last = teams.pop
-      teams.unshift(last)
-      teams.unshift(first)
+      first = active_lineups.shift
+      last = active_lineups.pop
+      active_lineups.unshift(last)
+      active_lineups.unshift(first)
       i += 1
     end
     rounds
