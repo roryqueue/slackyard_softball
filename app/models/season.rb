@@ -15,7 +15,7 @@ class Season
       playoff_teams = league.standings.first(4)
       winning_lineup = playoffs(playoff_teams[0].active_lineup, playoff_teams[1].active_lineup, playoff_teams[2].active_lineup, playoff_teams[3].active_lineup)
     end
-    champion = winning_lineup.team
+    @champion = winning_lineup.team
     crown_champion(champion)
   end
 
