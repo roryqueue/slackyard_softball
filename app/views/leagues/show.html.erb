@@ -1,15 +1,18 @@
 <ol class="page-header">
   <li><%= @league.name %> </li>
-  <% if current_user.try(:id) == @league.commissioner_id %>
-    <li><%= link_to 'Edit', edit_league_path(@league) %></li>
-  <% end %>
+  <% if @league.champion %>
   <li> (Champion: <%= link_to @league.champion.try(:name), team_path(@league.champion) %>)</li>
+  <% end %>
 </ol>
 
 
 <p>
   <%= "Commissioner: #{@league.commissioner.user_name}" %> | <%= link_to "Create a new team in #{@league.name}!", new_league_team_path(@league) %>
+  <% if current_user.try(:id) == @league.commissioner_id %>
+    | <%= link_to 'Edit', edit_league_path(@league) %>
+  <% end %>
 </p>
+
 <hr>
 
 <div class="standing-table twelve">

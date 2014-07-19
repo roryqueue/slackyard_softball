@@ -29,6 +29,8 @@ class LeaguesController < ApplicationController
 
   def edit
     @league = League.find(params[:id])
+    @managers = []
+    @league.teams.each { |team| @managers << team.user }
   end
 
   def update
