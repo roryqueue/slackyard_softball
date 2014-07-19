@@ -6,20 +6,21 @@
 <div class="five">
   <%= f.input :first_name, required: true, autofocus: true, label: "First Name"  %><br>
 
+  <%= f.input :last_name, required: true, label: "Last Name" %><br>
+
   <%= f.input :batting_contact, required: true, label: "Bat Contact" %><br>
 
-  <%= f.input :pitching_accuracy, required: true, label: "Throw Accuracy" %><br>
+  <%= f.input :batting_power, required: true, label: "Bat Power" %><br>
 
-  <%= f.input :fielding, required: true, label: "Fielding" %><br>
 
 </div>
 <div class="five">
 
-  <%= f.input :last_name, required: true, label: "Last Name" %><br>
-
-  <%= f.input :batting_power, required: true, label: "Bat Power" %><br>
+  <%= f.input :pitching_accuracy, required: true, label: "Throw Accuracy" %><br>
 
   <%= f.input :pitching_craftiness, required: true, label: "Pitch Craft" %><br>
+
+  <%= f.input :fielding, required: true, label: "Fielding" %><br>
 
   <%= f.input :speed, required: true, label: "Speed" %><br>
 
