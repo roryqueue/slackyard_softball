@@ -21,6 +21,8 @@ class CreateLineups < ActiveRecord::Migration
       t.integer :eighth_up_id, null: false
       t.integer :ninth_up_id, null: false
       t.string :nickname
+
+      t.timestamps
     end
   end
 end

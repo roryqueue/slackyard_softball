@@ -60,31 +60,34 @@ ActiveRecord::Schema.define(version: 20140719221217) do
   add_index "leagues", ["commissioner_id"], name: "index_leagues_on_commissioner_id", using: :btree
 
   create_table "lineups", force: true do |t|
-    t.integer "team_id",                           null: false
-    t.integer "pitcher_id",                        null: false
-    t.integer "catcher_id",                        null: false
-    t.integer "first_baseman_id",                  null: false
-    t.integer "second_baseman_id",                 null: false
-    t.integer "third_baseman_id",                  null: false
-    t.integer "shortstop_id",                      null: false
-    t.integer "left_fielder_id",                   null: false
-    t.integer "center_fielder_id",                 null: false
-    t.integer "right_fielder_id",                  null: false
-    t.integer "first_up_id",                       null: false
-    t.integer "second_up_id",                      null: false
-    t.integer "third_up_id",                       null: false
-    t.integer "fourth_up_id",                      null: false
-    t.integer "fifth_up_id",                       null: false
-    t.integer "sixth_up_id",                       null: false
-    t.integer "seventh_up_id",                     null: false
-    t.integer "eighth_up_id",                      null: false
-    t.integer "ninth_up_id",                       null: false
-    t.string  "nickname"
-    t.boolean "active",            default: false
+    t.integer  "team_id",                           null: false
+    t.integer  "pitcher_id",                        null: false
+    t.integer  "catcher_id",                        null: false
+    t.integer  "first_baseman_id",                  null: false
+    t.integer  "second_baseman_id",                 null: false
+    t.integer  "third_baseman_id",                  null: false
+    t.integer  "shortstop_id",                      null: false
+    t.integer  "left_fielder_id",                   null: false
+    t.integer  "center_fielder_id",                 null: false
+    t.integer  "right_fielder_id",                  null: false
+    t.integer  "first_up_id",                       null: false
+    t.integer  "second_up_id",                      null: false
+    t.integer  "third_up_id",                       null: false
+    t.integer  "fourth_up_id",                      null: false
+    t.integer  "fifth_up_id",                       null: false
+    t.integer  "sixth_up_id",                       null: false
+    t.integer  "seventh_up_id",                     null: false
+    t.integer  "eighth_up_id",                      null: false
+    t.integer  "ninth_up_id",                       null: false
+    t.string   "nickname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "active",            default: false
   end
 
   add_index "lineups", ["catcher_id"], name: "index_lineups_on_catcher_id", using: :btree
   add_index "lineups", ["center_fielder_id"], name: "index_lineups_on_center_fielder_id", using: :btree
+  add_index "lineups", ["created_at"], name: "index_lineups_on_created_at", using: :btree
   add_index "lineups", ["eighth_up_id"], name: "index_lineups_on_eighth_up_id", using: :btree
   add_index "lineups", ["fifth_up_id"], name: "index_lineups_on_fifth_up_id", using: :btree
   add_index "lineups", ["first_baseman_id"], name: "index_lineups_on_first_baseman_id", using: :btree
@@ -102,6 +105,7 @@ ActiveRecord::Schema.define(version: 20140719221217) do
   add_index "lineups", ["team_id"], name: "index_lineups_on_team_id", using: :btree
   add_index "lineups", ["third_baseman_id"], name: "index_lineups_on_third_baseman_id", using: :btree
   add_index "lineups", ["third_up_id"], name: "index_lineups_on_third_up_id", using: :btree
+  add_index "lineups", ["updated_at"], name: "index_lineups_on_updated_at", using: :btree
 
   create_table "out_keepers", force: true do |t|
     t.integer "pitcher_id", null: false

@@ -12,10 +12,10 @@
   <% if current_user.try(:id) == @team.user_id %>
     <h3>Lineups:</h3>
     <table>
-      <% @team.lineups.last(3).each do |lineup| %>
+      <% @lineups.each do |lineup| %>
         <tr>
           <td><%= link_to lineup.nickname, edit_lineup_path(lineup) %></td>
-          <td><%= "Active" if lineup.active == true %></td>
+          <td><%= "(active)" if lineup.active %></td>
         </tr>
       <% end %>
     </table>

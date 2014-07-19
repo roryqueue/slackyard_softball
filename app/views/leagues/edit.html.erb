@@ -8,7 +8,7 @@
   <% end %>
   <br><br>
 
-  <h2>Drastic Measures:</h2>
+  <h3>Drastic Measures:</h3>
 
   <% @league.teams.each do |team| %>
     <%= link_to "Boot #{team.name} from league", team_path(team), method: :delete %>

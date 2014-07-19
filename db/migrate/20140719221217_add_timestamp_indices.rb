@@ -6,5 +6,7 @@ class AddTimestampIndices < ActiveRecord::Migration
     add_index :score_keepers, :updated_at
     add_index :stat_keepers, :created_at
     add_index :stat_keepers, :updated_at
+    add_index :lineups, :created_at
+    add_index :lineups, :updated_at
   end
 end

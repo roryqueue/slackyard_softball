@@ -5,7 +5,7 @@ class AddChampionColumns < ActiveRecord::Migration
   end
 
   def down
-    remove_column :leagues, :champion
+    remove_column :leagues, :champion_id
     remove_column :users, :titles
   end
 end

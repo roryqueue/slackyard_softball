@@ -8,12 +8,11 @@ class LineupsController < ApplicationController
 
   def create
     @lineup = Lineup.new(lineup_params)
-    @lineup.user = current_user if current_user
     @lineup.team = Team.find(params[:team_id])
     if owner?
       if @lineup.save
         flash[:notice] = "Your lineup '#{@lineup.nickname}' has been created!"
-        redirect_to lineup_path(@lineup)
+        redirect_to team_path(@lineup.team)
       else
         flash.now[:notice] = "Your lineup could not be created!"
         render "lineups#new"
@@ -23,6 +22,7 @@ class LineupsController < ApplicationController
 
   def edit
     @lineup = Lineup.find(params[:id])
+    @team = @lineup.team
   end
 
   def update
@@ -31,7 +31,7 @@ class LineupsController < ApplicationController
     if owner?
       @lineup.update(lineup_params)
       flash[:notice] = "#{@lineup.nickname} has been successfully updated!"
-      redirect_to team_lineup_path(@lineup.team, @lineup)
+      redirect_to team_path(@lineup.team)
     end
   end
 
@@ -55,7 +55,7 @@ class LineupsController < ApplicationController
   def lineup_params
     params.require(:lineup).permit(:pitcher_id, :catcher_id, :first_baseman_id, :second_baseman_id, :third_baseman_id,
       :shortstop_id, :left_fielder_id, :center_fielder_id, :right_fielder_id, :first_up_id, :second_up_id, :third_up_id,
-      :fourth_up_id, :fifth_up_id, :sixth_up_id, :seventh_up_id, :eighth_up_id, :ninth_up_id, :nickname)
+      :fourth_up_id, :fifth_up_id, :sixth_up_id, :seventh_up_id, :eighth_up_id, :ninth_up_id, :nickname, :active)
   end
 
 end

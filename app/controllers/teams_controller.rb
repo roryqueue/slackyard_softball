@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @lineups = Lineup.where(team: @team).order("updated_at DESC").take(3)
   end
 
   def new
@@ -34,7 +35,7 @@ class TeamsController < ApplicationController
     if owner?
       @team.update(team_params)
       flash[:notice] = "#{@team.name} has been successfully updated!"
-      redirect_to league_team_path(@team.league, @team)
+      redirect_to team_path(@team)
     end
   end
 
