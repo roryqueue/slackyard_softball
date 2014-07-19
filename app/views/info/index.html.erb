@@ -1,0 +1,37 @@
+<div class="twelve">
+
+  <ol class="page-header">
+    <li>Slackyard Rules:</li>
+  </ol>
+  <hr>
+</div>
+
+<div class="six">
+  <h1>Join a League</h1>
+  <hr>
+  <p>Create a team <%= link_to "in an existing league", leagues_path %> from that team's homepage. Then, populate your team with players from the Team Home page. Finally, arrange your team's batting order and field positions by creating a new active lineup (also from the Team Home page). Your team will play in this arrangement until you change it or create a new active lineup altogether. Adjustments can be made each day for the following night's season.</p>
+  <hr>
+  <h1>Build your Team</h1>
+  <hr>
+  <p>Anyone can play on your team! Just select a player picture and attribute scores between 1 and 100. The six attributes in the slackyard world are:</p>
+  <div class="six">
+    <h4>Bat Power</h4><p>How hard can your player drive the ball?</p>
+    <h4>Bat Contact</h4><p>How frequently can your player slap out a hit?</p></span>
+    <h4>Pitch Craft</h4><p>How tough to hit is your pitcher?</p>
+  </div>
+  <div class="six">
+    <h4>Throw Accuracy</h4><p>Can your player put the ball where they want it?</p>
+    <h4>Fielding</h4><p>How strong is your player defensively?</p>
+    <h4>Speed</h4><p>How are your player's wheels?</p>
+  </div>
+</div>
+<div class="six">
+  <h1>Create a League</h1>
+  <hr>
+  <p>A new league can be created quite easily, <%= link_to "just give the league a name", new_league_path %> and populate your league with teams from the league home page. Your league must have at least two teams to play a season, and at least four to crown a champion. By default, your league will be open to anyone who wants to join, but as commissioner you have the ability to kick teams out of your league. You will remain the league's commissioner until you hand the duty off to another user on the League Edit page (available from the League Home page). Consider enforcing a team strength limit for your league. Each team's strength is determined by the sum of all its players' attributes, so setting a maximum will enforce fairness across teams.</p>
+  <hr>
+  <h1>Play Ball!</h1>
+  <hr>
+  <p>A new season for each league will be simulated overnight beginning at 2:30AM EST (06:30 UTC). All previous game data will be destroyed at this time, but count of all-time titles is persisted on each user's manager stat card. A default season consists of two round robins of three-game series, followed by a playoff tournament of five-game series among the top four teams. Each team's most recent active lineup will play each game. If you have not set an active lineup, your team will sit out the season.Games are simulated at the pitch-by-pitch according two each player's six attributes. Have fun and may the best manager win!</p>
+<br>
+</div>
