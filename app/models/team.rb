@@ -141,5 +141,18 @@ class Team < ActiveRecord::Base
       reformatted_field_perc = '%.3f' % field_perc
     end
   end
-end
 
+  def strength
+    strength = 0.0
+    self.players.each do |player|
+      strength += player.batting_contact
+      strength += player.batting_power
+      strength += player.pitching_craftiness
+      strength += ( player.pitching_accuracy.to_f / 2 )
+      strength += player.fielding
+      strength += ( player.speed.to_f / 2 )
+    end
+    ( strength / 450 ).round(2)
+  end
+
+end

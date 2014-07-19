@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :lineups, only: [:new, :create]
   end
 
-  resources :contacts, only: :index
   resources :lineups, only: [:edit, :update, :destroy]
+  resources :contacts, only: :index
+  resources :info, only: :index
+
 end

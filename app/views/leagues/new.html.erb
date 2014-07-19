@@ -1,4 +1,7 @@
-<%= simple_form_for @league do |f| %>
-  <%= f.input :name, required: true, autofocus: true, label: "Name"  %>
-  <%= f.button :submit %>
-<% end %>
+<div class="three">
+  <%= simple_form_for @league do |f| %>
+    <%= f.input :name, required: true, autofocus: true, label: "Name"  %>
+    <%= f.button :submit %>
+  <% end %>
+  <br>
+</div>
