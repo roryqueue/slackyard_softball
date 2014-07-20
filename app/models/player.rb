@@ -1,5 +1,4 @@
 class Player < ActiveRecord::Base
-  validates :first_name
   validates :last_name, presence: true
   validates :batting_contact, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
   validates :batting_power, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
