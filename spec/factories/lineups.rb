@@ -20,6 +20,9 @@ FactoryGirl.define do
     association :eighth_up, factory: :player
     association :ninth_up, factory: :player
 
+    created_at Time.now
+    updated_at Time.now
+
     team
   end
 end
