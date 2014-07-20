@@ -23,6 +23,17 @@ class PlayersController < ApplicationController
     end
   end
 
+  def destroy
+    @player = Player.find(params[:id])
+
+    if owner?
+      @player.destroy
+
+      flash[:notice] = "#{@player.name} has been kicked off the team!"
+      redirect_to team_path(params[:team_id])
+    end
+  end
+
   def owner?
     current_user.try(:id) == @player.team.user_id
   end
