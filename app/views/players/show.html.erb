@@ -3,8 +3,14 @@
   <li>(<%= link_to @player.team.name, team_path(@player.team) %>, </li>
   <li><%= link_to @player.team.league.name, league_path(@player.team.league) %>)</li>
 </ol>
-<p><%= "Bat Contact: #{@player.batting_contact} | Bat Power: #{@player.batting_power} | Throw Accuracy: #{@player.pitching_accuracy} | Pitch Craft: #{@player.pitching_craftiness} | Fielding: #{@player.fielding} | Speed: #{@player.speed}" %></p>
-<br>
+
+<p><%= "Bat Contact: #{@player.batting_contact} | Bat Power: #{@player.batting_power} | Throw Accuracy: #{@player.pitching_accuracy} | Pitch Craft: #{@player.pitching_craftiness} | Fielding: #{@player.fielding} | Speed: #{@player.speed}" %>
+<% if @player.team.user %>
+| <%= link_to "Kick off team", team_player_path(@player.team, @player), method: :delete %>
+<% end %>
+</p>
+<hr>
+
 <div class="four"><img src=<%= @player.picture %> alt="Player Picture"></div>
 <div class="four">
   <h3>Batting:</h3>
