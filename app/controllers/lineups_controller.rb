@@ -15,7 +15,7 @@ class LineupsController < ApplicationController
         redirect_to team_path(@lineup.team)
       else
         flash.now[:notice] = "Your lineup could not be created!"
-        render "lineups#new"
+        redirect_to team_path(@lineup.team)
       end
     end
   end

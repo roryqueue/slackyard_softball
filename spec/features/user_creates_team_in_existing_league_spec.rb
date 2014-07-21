@@ -45,7 +45,7 @@ feature "User creates a team in an existing league" do
     click_on "Create Team"
 
     expect(page).not_to have_content "Success"
-    expect(page).to have_content "can't be blank"
+    expect(page).not_to have_content team.name
   end
 
 end

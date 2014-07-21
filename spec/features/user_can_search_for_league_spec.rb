@@ -1,4 +1,8 @@
-# not implemented yet
+# PAUSED: feature not implemented yet
+
+
+
+
 # require 'rails_helper'
 
 # feature 'user is able to search for league' do
