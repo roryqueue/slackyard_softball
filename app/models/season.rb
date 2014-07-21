@@ -86,7 +86,7 @@ class Season
   def playoff_series(team_one, team_two, number_of_games)
     team_one_wins = 0
     team_two_wins = 0
-    until ((number_of_games.to_i + 1) / 2) == ( team_one_wins || team_two_wins )
+    until ((number_of_games.to_i + 1) / 2 == team_one_wins ) || ((number_of_games.to_i + 1) / 2 == team_two_wins )
       if play_game(team_one, team_two) == team_one
         team_one_wins += 1
       else
