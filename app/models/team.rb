@@ -95,7 +95,7 @@ class Team < ActiveRecord::Base
   end
 
   def era
-    era = 999
+    era = 999.99
     runs = ScoreKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     outs = OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0

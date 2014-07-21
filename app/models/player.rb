@@ -102,7 +102,7 @@ class Player < ActiveRecord::Base
   end
 
   def era
-    era = 999
+    era = 999.99
     runs = ScoreKeeper.where(pitcher_id: self.id).count
     unless self.innings_pitched.nil? || self.innings_pitched == 0
       era = ((runs.to_f / innings_pitched) * 9.0).round(2)
