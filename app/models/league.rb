@@ -22,7 +22,7 @@ class League < ActiveRecord::Base
   end
 
   def batting_average_leaders
-    self.players.sort_by { |player| if player.batting_average then player.batting_average end }.reverse!
+    self.players.sort_by { |player| player.try(:batting_average) }.reverse!
   end
 
   def homerun_leaders
@@ -34,7 +34,7 @@ class League < ActiveRecord::Base
   end
 
   def era_leaders
-    self.players.sort_by { |player| if player.era then player.era end }
+    self.players.sort_by { |player| player.try(:era) }
   end
 
   def pitching_win_leaders

@@ -46,17 +46,17 @@
   </span>
   <hr>
 
-  <h3>Batting:</h3><br>
+  <h3>Batting Average:</h3><br>
   <span class="cards">
-    <% @league.hit_leaders.first(3).each do |player| %>
+    <% @league.batting_average_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>
   <hr>
 
-  <h3>Pitching:</h3><br>
+  <h3>ERA:</h3><br>
   <span class="cards">
-    <% @league.pitching_win_leaders.first(3).each do |player| %>
+    <% @league.era_leaders.first(3).each do |player| %>
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>

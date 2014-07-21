@@ -99,8 +99,13 @@ class Team < ActiveRecord::Base
     outs = OutKeeper.where(pitcher_id: Player.where(team_id: self.id)).count
     unless outs.nil? || outs == 0
       era = ((runs.to_f / outs.to_f) * 27.0).round(2)
-      reformatted_era = '%.2f' % era
     end
+    era = 999 unless era
+    era
+  end
+
+  def era_formatted
+    '%.2f' % era
   end
 
   def strikeouts_thrown

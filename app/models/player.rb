@@ -105,8 +105,13 @@ class Player < ActiveRecord::Base
     runs = ScoreKeeper.where(pitcher_id: self.id).count
     unless self.innings_pitched.nil? || self.innings_pitched == 0
       era = ((runs.to_f / innings_pitched) * 9.0).round(2)
-      reformatted_era = '%.2f' % era
     end
+    era = 999 unless era
+    era
+  end
+
+  def era_formatted
+    '%.2f' % era
   end
 
   def strikeouts_thrown
