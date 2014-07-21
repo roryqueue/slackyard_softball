@@ -102,13 +102,10 @@ class Player < ActiveRecord::Base
   end
 
   def era
-    era = nil
+    era = 999
     runs = ScoreKeeper.where(pitcher_id: self.id).count
     unless self.innings_pitched.nil? || self.innings_pitched == 0
       era = ((runs.to_f / innings_pitched) * 9.0).round(2)
-    end
-    unless era
-      era = 999
     end
     era
   end
@@ -162,6 +159,7 @@ class Player < ActiveRecord::Base
   end
 
   def field_percentage
+    field_perc = 0
     if StatKeeper.where(fielder_id: self.id).count > 0
       field_perc = ( 1 - (self.err_count.to_f) / StatKeeper.where(fielder_id: self.id).count.to_f).round(3)
     end
