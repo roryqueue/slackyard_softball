@@ -31,7 +31,9 @@ class Season
     2.times do
       round_robin.each do |week|
         week.each do |matchup|
-          series(matchup[0], matchup[1], 3)
+          if matchup[0] && matchup[1]
+            series(matchup[0], matchup[1], 3)
+          end
         end
       end
     end
