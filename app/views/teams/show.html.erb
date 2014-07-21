@@ -74,7 +74,7 @@
   </table>
   <br>
 
-  <%= render "partials/scores", games: @team.games.last(4) %>
+  <%= render "partials/scores", games: @team.games.last(4).reverse! %>
 </div>
 
 <div class="team-roster nine">

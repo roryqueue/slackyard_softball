@@ -62,5 +62,5 @@
   </span>
 </div>
 <div class="three">
-  <%= render "partials/scores", games: @league.games.last(7) %>
+  <%= render "partials/scores", games: @league.games.last(7).reverse! %>
 </div>
