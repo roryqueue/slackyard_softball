@@ -31,9 +31,7 @@ class Season
     2.times do
       round_robin.each do |week|
         week.each do |matchup|
-          if matchup[0] && matchup[1]
-            series(matchup[0], matchup[1], 3)
-          end
+          series(matchup[0], matchup[1], 3)
         end
       end
     end
@@ -65,8 +63,10 @@ class Season
   end
 
   def series(team_one, team_two, number_of_games)
-    number_of_games.times do
-      play_game(team_one, team_two)
+    if team_one && team_two
+      number_of_games.times do
+        play_game(team_one, team_two)
+      end
     end
   end
 
