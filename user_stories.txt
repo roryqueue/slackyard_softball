@@ -33,7 +33,7 @@ X
 As a user,
 I want to be picked as commissioner of a league,
 so I can control the activity.
-
+X
 As a user,
 I want to set a lineup for my team,
 so I can put players in the right positions and batting order.

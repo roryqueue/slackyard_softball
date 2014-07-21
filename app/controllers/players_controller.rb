@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
         redirect_to team_path(@player.team)
       else
         flash.now[:notice] = "Your player could not be created!"
-        render "players#new"
+        redirect_to team_path(@player.team)
       end
     end
   end
