@@ -60,6 +60,14 @@
       <%= render "refills/cards", person: player %>
     <% end %>
   </span>
+
+  <h3>Field Percentage:</h3><br>
+  <span class="cards">
+    <% @league.fielding_leaders.first(3).each do |player| %>
+      <%= render "refills/cards", person: player %>
+    <% end %>
+  </span>
+
 </div>
 <div class="three">
   <%= render "partials/scores", games: @league.games.last(7).reverse! %>

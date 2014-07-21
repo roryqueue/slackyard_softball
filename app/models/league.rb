@@ -44,4 +44,8 @@ class League < ActiveRecord::Base
   def strikeout_leaders
     self.players.sort_by { |player| player.strikeouts_thrown }.reverse!
   end
+
+  def fielding_leaders
+    self.players.sort_by { |player| player.try(:field_percentage) }.reverse!
+  end
 end

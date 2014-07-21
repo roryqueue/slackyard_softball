@@ -143,8 +143,11 @@ class Team < ActiveRecord::Base
   def field_percentage
     if StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count > 0
       field_perc = (1 - (self.err_count.to_f) / StatKeeper.where(fielder_id: Player.where(team_id: self.id)).count.to_f).round(3)
-      reformatted_field_perc = '%.3f' % field_perc
     end
+  end
+
+  def field_percentage_formatted
+    '%.3f' % self.field_percentage
   end
 
   def strength

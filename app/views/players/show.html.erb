@@ -49,8 +49,8 @@
       <td><%= @player.err_count %></td>
     </tr>
     <tr>
-      <td>Fielding %:</td>
-      <td><%= @player.field_percentage %></td>
+      <td>Field %:</td>
+      <td><%= @player.field_percentage_formatted %></td>
     </tr>
   </table>
   <br>
@@ -58,7 +58,7 @@
   <table>
     <tr>
       <td>ERA:</td>
-      <td><%= @player.era %></td>
+      <td><%= @player.era_formatted %></td>
     </tr>
     <tr>
       <td>Strikeouts:</td>
