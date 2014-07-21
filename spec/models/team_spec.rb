@@ -21,13 +21,13 @@ describe Team do
     expect(team.losses).to eq 0
     expect(team.err_count).to eq 0
     expect(team.batting_average).to eq 0
+    expect(team.field_percentage).to eq 0
   end
 
-  it 'calculates team stats, those with divide-by-zero constraints are nil' do
+  it 'calculates team stats, those with divide-by-zero constraints are predetermined' do
     team = FactoryGirl.build(:team)
 
-    expect(team.era).to eq nil
-    expect(team.field_percentage).to eq nil
+    expect(team.era).to eq 999.99
   end
 
   it 'has a league and an owner' do

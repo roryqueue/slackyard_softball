@@ -21,13 +21,14 @@ describe Player do
     expect(player.losses).to eq 0
     expect(player.err_count).to eq 0
     expect(player.batting_average).to eq 0
+    expect(player.field_percentage).to eq 0
+
   end
 
-  it 'calculates player stats, those with divide-by-zero constraints are nil' do
+  it 'calculates player stats, those with divide-by-zero constraints are predetermined' do
     player = FactoryGirl.build(:player)
 
-    expect(player.era).to eq nil
-    expect(player.field_percentage).to eq nil
+    expect(player.era).to eq 999.99
   end
 
   it 'has a team' do
