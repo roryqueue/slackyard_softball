@@ -28,7 +28,7 @@ class Season
   end
 
   def play_regular_season
-    2.times do
+    4.times do
       round_robin.each do |week|
         week.each do |matchup|
           series(matchup[0], matchup[1], 3)

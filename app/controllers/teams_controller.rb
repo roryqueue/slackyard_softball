@@ -14,14 +14,15 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.user = current_user if current_user
-    @team.league = League.find(params[:league_id])
+    @league = League.find(params[:league_id])
+    @team.league = @league
 
     if @team.save
       flash[:notice] = "Your team '#{@team.name}' has been created!"
       redirect_to team_path(@team)
     else
       flash.now[:notice] = "Your team could not be created!"
-      redirect_to league_path(@team.league)
+      redirect_to league_path(@league)
     end
   end
 
